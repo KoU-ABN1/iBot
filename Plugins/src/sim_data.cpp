@@ -4,6 +4,7 @@
 SimHandles handles;
 RobotInfo robot;
 CustomerInfo customer;
+VisionInfo head;  // updated by sim.sendVisionInfo in sim_plugin.cpp
 
 void getCustomerInfo() {
     float position[3];

@@ -27,13 +27,17 @@ struct CustomerInfo {
     float x;
     float y;
     float yaw;
-    float head_x;
-    float head_y;
+};
+
+struct VisionInfo {
+    float x;
+    float y;
 };
 
 extern SimHandles handles;
 extern RobotInfo robot;
 extern CustomerInfo customer;
+extern VisionInfo head;
 
 void getObjectHandles(std::vector<int>);
 void getRobotInfo();

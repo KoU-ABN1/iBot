@@ -25,17 +25,16 @@ void LUA_CREATE_CALLBACK(SScriptCallBack *cb)
     D.writeDataToStack(cb->stackID);
 }
 
-#define LUA_ROBOT_COMMAND "iBot.sendRobotInfo"
-const int inArgs_ROBOT[] = {1, sim_script_arg_float | sim_script_arg_table, 0};
-void LUA_ROBOT_CALLBACK(SScriptCallBack *cb)
+#define LUA_VISION_COMMAND "iBot.sendVisionInfo"
+const int inArgs_VISION[] = {2, sim_script_arg_float, 0, sim_script_arg_float, 0};
+void LUA_VISION_CALLBACK(SScriptCallBack *cb)
 {
     CScriptFunctionData D;
-    if (D.readDataFromStack(cb->stackID, inArgs_ROBOT, inArgs_ROBOT[0], LUA_ROBOT_COMMAND))
+    if (D.readDataFromStack(cb->stackID, inArgs_VISION, inArgs_VISION[0], LUA_VISION_COMMAND))
     {
         std::vector<CScriptFunctionDataItem> *inData = D.getInDataPtr();
-        robot.x = inData->at(0).int32Data[0];
-        robot.y = inData->at(0).int32Data[1];
-        robot.yaw = inData->at(0).int32Data[2];
+        head.x = inData->at(0).floatData[0];
+        head.y = inData->at(1).floatData[0];
     }
     D.pushOutData(CScriptFunctionDataItem(0));
     D.writeDataToStack(cb->stackID);
@@ -74,7 +73,7 @@ SIM_DLLEXPORT unsigned char simStart(void *, int)
     // Register new functions
     simRegisterScriptCallbackFunction(strConCat(LUA_CREATE_COMMAND, "@", PLUGIN_NAME), strConCat("", LUA_CREATE_COMMAND, ""), LUA_CREATE_CALLBACK);
     simRegisterScriptCallbackFunction(strConCat(LUA_START_COMMAND, "@", PLUGIN_NAME), strConCat("", LUA_START_COMMAND, ""), LUA_START_CALLBACK);
-    simRegisterScriptCallbackFunction(strConCat(LUA_ROBOT_COMMAND, "@", PLUGIN_NAME), strConCat("", LUA_ROBOT_COMMAND, ""), LUA_ROBOT_CALLBACK);
+    simRegisterScriptCallbackFunction(strConCat(LUA_VISION_COMMAND, "@", PLUGIN_NAME), strConCat("", LUA_VISION_COMMAND, ""), LUA_VISION_CALLBACK);
 
     return (11); // Return the version number of this plugin. 11 is for CoppeliaSim versions after CoppeliaSim 4.2.0
 }
