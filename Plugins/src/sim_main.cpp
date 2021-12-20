@@ -15,27 +15,29 @@ void mainSimulation()
 
 void moveToCustomer()
 {
-    // const float vel_set = 1;
+    const float vel_set = 20;
 
-    // float bias = 1;
-    // Point p1(robot.x, robot.y);
-    // Point p2(robot.x + bias * cos(robot.yaw), robot.y + bias * sin(robot.yaw));
-    // Point p3(customer.x + bias * cos(customer.yaw), customer.y + bias * sin(customer.yaw));
-    // Point p4(customer.x, customer.y);
+    float bias = 1;
+    Point p1(robot.x, robot.y);
+    Point p2(robot.x + bias * cos(robot.yaw), robot.y + bias * sin(robot.yaw));
+    Point p3(customer.x + bias * cos(customer.yaw), customer.y + bias * sin(customer.yaw));
+    Point p4(customer.x, customer.y);
 
-    // float dist = sqrt(pow(customer.x - robot.x, 2) + pow(customer.y - robot.y, 2));
-    // float t = dist / dist;
-    // Point target;
-    // target = p1 * (1 - t) * (1 - t) * (1 - t) + p2 * (1 - t) * (1 - t) * t + p3 * (1 - t) * t * t + p4 * t * t * t;
+    float dist = sqrt(pow(customer.x - robot.x, 2) + pow(customer.y - robot.y, 2));
+    float t = dist / dist;
+    Point target;
+    target = p1 * (1 - t) * (1 - t) * (1 - t) + p2 * (1 - t) * (1 - t) * t + p3 * (1 - t) * t * t + p4 * t * t * t;
 
-    // const float d = 0.27;
-    // float r = (target.x * target.x + target.y * target.y) / (2 * target.x * sin(robot.yaw) - 2 * target.y * cos(robot.yaw));
+    const float d = 0.27;
+    float r = (target.x * target.x + target.y * target.y) / (2 * target.x * sin(robot.yaw) - 2 * target.y * cos(robot.yaw));
 
-    // float v1 = (r + d) / r * vel_set;
-    // float v2 = (r - d) / r * vel_set;
+    float v1 = (r + d) / r * vel_set;
+    float v2 = (r - d) / r * vel_set;
 
-    //simSetJointTargetVelocity(handles.left_wheel, v1);
-    //simSetJointTargetVelocity(handles.right_wheel, v2);
+    std::cout << v1 << std::endl;
+
+    simSetJointTargetVelocity(handles.left_wheel, v1);
+    simSetJointTargetVelocity(handles.right_wheel, v2);
 }
 
 void faceTracking()

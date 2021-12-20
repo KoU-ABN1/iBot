@@ -5,8 +5,9 @@ struct Point
 {
     float x;
     float y;
-    Point();
+    Point(){};
     Point(float t1, float t2) : x(t1), y(t2) {}
+
     Point operator+(Point p)
     {
         return Point(p.x + x, p.y + y);
