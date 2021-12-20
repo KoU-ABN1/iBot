@@ -46,11 +46,13 @@ CMakeFiles/iBot_v1.dir/src/sim_main.cpp.o: \
  /home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/include/simLib.h \
  /home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/include/simConst.h \
  /home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/include/simTypes.h \
- /usr/include/c++/7/cstddef /usr/include/c++/7/iostream \
- /usr/include/c++/7/ostream /usr/include/c++/7/ios \
- /usr/include/c++/7/iosfwd /usr/include/c++/7/bits/stringfwd.h \
- /usr/include/c++/7/bits/postypes.h /usr/include/c++/7/cwchar \
- /usr/include/wchar.h \
+ /usr/include/c++/7/cstddef /home/hao/iBot/Plugins/include/sim_main.h \
+ /home/hao/iBot/Plugins/include/sim_plugin.h \
+ /home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/include/scriptFunctionData.h \
+ /home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/include/scriptFunctionDataItem.h \
+ /usr/include/c++/7/string /usr/include/c++/7/bits/stringfwd.h \
+ /usr/include/c++/7/bits/char_traits.h /usr/include/c++/7/bits/postypes.h \
+ /usr/include/c++/7/cwchar /usr/include/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
@@ -63,7 +65,7 @@ CMakeFiles/iBot_v1.dir/src/sim_main.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
- /usr/include/c++/7/bits/char_traits.h /usr/include/c++/7/cstdint \
+ /usr/include/c++/7/cstdint \
  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
@@ -72,13 +74,18 @@ CMakeFiles/iBot_v1.dir/src/sim_main.cpp.o: \
  /usr/include/c++/7/bits/localefwd.h \
  /usr/include/x86_64-linux-gnu/c++/7/bits/c++locale.h \
  /usr/include/c++/7/clocale /usr/include/locale.h \
- /usr/include/x86_64-linux-gnu/bits/locale.h /usr/include/c++/7/cctype \
- /usr/include/ctype.h /usr/include/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/locale.h /usr/include/c++/7/iosfwd \
+ /usr/include/c++/7/cctype /usr/include/ctype.h /usr/include/endian.h \
  /usr/include/x86_64-linux-gnu/bits/endian.h \
  /usr/include/x86_64-linux-gnu/bits/byteswap.h \
  /usr/include/x86_64-linux-gnu/bits/byteswap-16.h \
  /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
- /usr/include/c++/7/bits/ios_base.h /usr/include/c++/7/ext/atomicity.h \
+ /usr/include/c++/7/bits/ostream_insert.h \
+ /usr/include/c++/7/bits/cxxabi_forced.h \
+ /usr/include/c++/7/bits/stl_function.h \
+ /usr/include/c++/7/backward/binders.h \
+ /usr/include/c++/7/bits/basic_string.h \
+ /usr/include/c++/7/ext/atomicity.h \
  /usr/include/x86_64-linux-gnu/c++/7/bits/gthr.h \
  /usr/include/x86_64-linux-gnu/c++/7/bits/gthr-default.h \
  /usr/include/pthread.h /usr/include/sched.h \
@@ -99,13 +106,8 @@ CMakeFiles/iBot_v1.dir/src/sim_main.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
  /usr/include/x86_64-linux-gnu/bits/setjmp.h \
  /usr/include/x86_64-linux-gnu/c++/7/bits/atomic_word.h \
- /usr/include/c++/7/bits/locale_classes.h /usr/include/c++/7/string \
- /usr/include/c++/7/bits/ostream_insert.h \
- /usr/include/c++/7/bits/cxxabi_forced.h \
- /usr/include/c++/7/bits/stl_function.h \
- /usr/include/c++/7/backward/binders.h \
- /usr/include/c++/7/bits/basic_string.h /usr/include/c++/7/string_view \
- /usr/include/c++/7/limits /usr/include/c++/7/bits/string_view.tcc \
+ /usr/include/c++/7/string_view /usr/include/c++/7/limits \
+ /usr/include/c++/7/bits/string_view.tcc \
  /usr/include/c++/7/ext/string_conversions.h /usr/include/c++/7/cstdlib \
  /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
@@ -127,6 +129,10 @@ CMakeFiles/iBot_v1.dir/src/sim_main.cpp.o: \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/c++/7/bits/basic_string.tcc \
+ /home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/include/simLib.h \
+ /usr/include/c++/7/iostream /usr/include/c++/7/ostream \
+ /usr/include/c++/7/ios /usr/include/c++/7/bits/ios_base.h \
+ /usr/include/c++/7/bits/locale_classes.h \
  /usr/include/c++/7/bits/locale_classes.tcc \
  /usr/include/c++/7/system_error \
  /usr/include/x86_64-linux-gnu/c++/7/bits/error_constants.h \
@@ -141,4 +147,26 @@ CMakeFiles/iBot_v1.dir/src/sim_main.cpp.o: \
  /usr/include/c++/7/bits/locale_facets.tcc \
  /usr/include/c++/7/bits/basic_ios.tcc \
  /usr/include/c++/7/bits/ostream.tcc /usr/include/c++/7/istream \
- /usr/include/c++/7/bits/istream.tcc
+ /usr/include/c++/7/bits/istream.tcc /usr/include/c++/7/math.h \
+ /usr/include/c++/7/cmath /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+ /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+ /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+ /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+ /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
+ /usr/include/c++/7/bits/specfun.h /usr/include/c++/7/tr1/gamma.tcc \
+ /usr/include/c++/7/tr1/special_function_util.h \
+ /usr/include/c++/7/tr1/bessel_function.tcc \
+ /usr/include/c++/7/tr1/special_function_util.h \
+ /usr/include/c++/7/tr1/beta_function.tcc \
+ /usr/include/c++/7/tr1/ell_integral.tcc \
+ /usr/include/c++/7/tr1/exp_integral.tcc \
+ /usr/include/c++/7/tr1/hypergeometric.tcc \
+ /usr/include/c++/7/tr1/legendre_function.tcc \
+ /usr/include/c++/7/tr1/modified_bessel_func.tcc \
+ /usr/include/c++/7/tr1/poly_hermite.tcc \
+ /usr/include/c++/7/tr1/poly_laguerre.tcc \
+ /usr/include/c++/7/tr1/riemann_zeta.tcc
