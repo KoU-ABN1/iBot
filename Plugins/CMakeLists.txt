@@ -1,8 +1,8 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.10)
 project(iBot_v1)
 
 include_directories(include)
-# include_directories(/home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/include)
+include_directories(/home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/include)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_MACOSX_RPATH 1)

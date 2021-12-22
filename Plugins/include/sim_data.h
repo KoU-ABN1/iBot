@@ -3,7 +3,8 @@
 #include <vector>
 #include "/home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/include/simLib.h"
 
-struct SimHandles {
+struct SimHandles
+{
     int left_wheel;
     int right_wheel;
     int waist_joint;
@@ -15,21 +16,25 @@ struct SimHandles {
     int right_arm_joint_2;
     int robot;
     int customer;
+    int drawer;
 };
 
-struct RobotInfo {
+struct RobotInfo
+{
     float x;
     float y;
     float yaw;
 };
 
-struct CustomerInfo {
+struct CustomerInfo
+{
     float x;
     float y;
     float yaw;
 };
 
-struct VisionInfo {
+struct VisionInfo
+{
     float x;
     float y;
 };

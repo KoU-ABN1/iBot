@@ -15,26 +15,33 @@ void mainSimulation()
 
 void moveToCustomer()
 {
-    const float vel_set = 20;
+    const float vel_set = 3;
+    const float d = 0.27;
+    const float bias = 3;
 
-    float bias = 1;
     Point p1(robot.x, robot.y);
     Point p2(robot.x + bias * cos(robot.yaw), robot.y + bias * sin(robot.yaw));
     Point p3(customer.x + bias * cos(customer.yaw), customer.y + bias * sin(customer.yaw));
     Point p4(customer.x, customer.y);
 
     float dist = sqrt(pow(customer.x - robot.x, 2) + pow(customer.y - robot.y, 2));
-    float t = dist / dist;
+    float t = 0;
+    std::cout << customer.yaw << std::endl;
     Point target;
-    target = p1 * (1 - t) * (1 - t) * (1 - t) + p2 * (1 - t) * (1 - t) * t + p3 * (1 - t) * t * t + p4 * t * t * t;
+    for (int i = 0; i < 100; i++)
+    {
+        target = p4 * (1 - t) * (1 - t) * (1 - t) + p3 * 3 * (1 - t) * (1 - t) * t + p2 * 3 * (1 - t) * t * t + p1 * t * t * t;
+        t += 0.01;
+        float pointToDraw[] = {target.x, target.y, 0};
+        simAddDrawingObjectItem(handles.drawer, pointToDraw);
+    }
 
-    const float d = 0.27;
-    float r = (target.x * target.x + target.y * target.y) / (2 * target.x * sin(robot.yaw) - 2 * target.y * cos(robot.yaw));
-
+    target = p4;
+    float m = target.x - robot.x;
+    float n = target.y - robot.y;
+    float r = (m * m + n * n) / (2 * m * sin(robot.yaw) - 2 * n * cos(robot.yaw));
     float v1 = (r + d) / r * vel_set;
     float v2 = (r - d) / r * vel_set;
-
-    std::cout << v1 << std::endl;
 
     simSetJointTargetVelocity(handles.left_wheel, v1);
     simSetJointTargetVelocity(handles.right_wheel, v2);
