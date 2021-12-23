@@ -174,6 +174,78 @@ iBot_v1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/build
 .PHONY : iBot_v1/fast
 
+common.o: common.cpp.o
+.PHONY : common.o
+
+# target to build an object file
+common.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/common.cpp.o
+.PHONY : common.cpp.o
+
+common.i: common.cpp.i
+.PHONY : common.i
+
+# target to preprocess a source file
+common.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/common.cpp.i
+.PHONY : common.cpp.i
+
+common.s: common.cpp.s
+.PHONY : common.s
+
+# target to generate assembly for a file
+common.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/common.cpp.s
+.PHONY : common.cpp.s
+
+coppelia_interface.o: coppelia_interface.cpp.o
+.PHONY : coppelia_interface.o
+
+# target to build an object file
+coppelia_interface.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/coppelia_interface.cpp.o
+.PHONY : coppelia_interface.cpp.o
+
+coppelia_interface.i: coppelia_interface.cpp.i
+.PHONY : coppelia_interface.i
+
+# target to preprocess a source file
+coppelia_interface.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/coppelia_interface.cpp.i
+.PHONY : coppelia_interface.cpp.i
+
+coppelia_interface.s: coppelia_interface.cpp.s
+.PHONY : coppelia_interface.s
+
+# target to generate assembly for a file
+coppelia_interface.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/coppelia_interface.cpp.s
+.PHONY : coppelia_interface.cpp.s
+
+differential_chassis.o: differential_chassis.cpp.o
+.PHONY : differential_chassis.o
+
+# target to build an object file
+differential_chassis.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/differential_chassis.cpp.o
+.PHONY : differential_chassis.cpp.o
+
+differential_chassis.i: differential_chassis.cpp.i
+.PHONY : differential_chassis.i
+
+# target to preprocess a source file
+differential_chassis.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/differential_chassis.cpp.i
+.PHONY : differential_chassis.cpp.i
+
+differential_chassis.s: differential_chassis.cpp.s
+.PHONY : differential_chassis.s
+
+# target to generate assembly for a file
+differential_chassis.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/differential_chassis.cpp.s
+.PHONY : differential_chassis.cpp.s
+
 home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.o: home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.cpp.o
 .PHONY : home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.o
 
@@ -246,77 +318,77 @@ home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.cpp.s
 .PHONY : home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.cpp.s
 
-src/sim_data.o: src/sim_data.cpp.o
-.PHONY : src/sim_data.o
+motor.o: motor.cpp.o
+.PHONY : motor.o
 
 # target to build an object file
-src/sim_data.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/src/sim_data.cpp.o
-.PHONY : src/sim_data.cpp.o
+motor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/motor.cpp.o
+.PHONY : motor.cpp.o
 
-src/sim_data.i: src/sim_data.cpp.i
-.PHONY : src/sim_data.i
+motor.i: motor.cpp.i
+.PHONY : motor.i
 
 # target to preprocess a source file
-src/sim_data.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/src/sim_data.cpp.i
-.PHONY : src/sim_data.cpp.i
+motor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/motor.cpp.i
+.PHONY : motor.cpp.i
 
-src/sim_data.s: src/sim_data.cpp.s
-.PHONY : src/sim_data.s
+motor.s: motor.cpp.s
+.PHONY : motor.s
 
 # target to generate assembly for a file
-src/sim_data.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/src/sim_data.cpp.s
-.PHONY : src/sim_data.cpp.s
+motor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/motor.cpp.s
+.PHONY : motor.cpp.s
 
-src/sim_main.o: src/sim_main.cpp.o
-.PHONY : src/sim_main.o
+sim_main.o: sim_main.cpp.o
+.PHONY : sim_main.o
 
 # target to build an object file
-src/sim_main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/src/sim_main.cpp.o
-.PHONY : src/sim_main.cpp.o
+sim_main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/sim_main.cpp.o
+.PHONY : sim_main.cpp.o
 
-src/sim_main.i: src/sim_main.cpp.i
-.PHONY : src/sim_main.i
+sim_main.i: sim_main.cpp.i
+.PHONY : sim_main.i
 
 # target to preprocess a source file
-src/sim_main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/src/sim_main.cpp.i
-.PHONY : src/sim_main.cpp.i
+sim_main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/sim_main.cpp.i
+.PHONY : sim_main.cpp.i
 
-src/sim_main.s: src/sim_main.cpp.s
-.PHONY : src/sim_main.s
+sim_main.s: sim_main.cpp.s
+.PHONY : sim_main.s
 
 # target to generate assembly for a file
-src/sim_main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/src/sim_main.cpp.s
-.PHONY : src/sim_main.cpp.s
+sim_main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/sim_main.cpp.s
+.PHONY : sim_main.cpp.s
 
-src/sim_plugin.o: src/sim_plugin.cpp.o
-.PHONY : src/sim_plugin.o
+three_part_body.o: three_part_body.cpp.o
+.PHONY : three_part_body.o
 
 # target to build an object file
-src/sim_plugin.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/src/sim_plugin.cpp.o
-.PHONY : src/sim_plugin.cpp.o
+three_part_body.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/three_part_body.cpp.o
+.PHONY : three_part_body.cpp.o
 
-src/sim_plugin.i: src/sim_plugin.cpp.i
-.PHONY : src/sim_plugin.i
+three_part_body.i: three_part_body.cpp.i
+.PHONY : three_part_body.i
 
 # target to preprocess a source file
-src/sim_plugin.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/src/sim_plugin.cpp.i
-.PHONY : src/sim_plugin.cpp.i
+three_part_body.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/three_part_body.cpp.i
+.PHONY : three_part_body.cpp.i
 
-src/sim_plugin.s: src/sim_plugin.cpp.s
-.PHONY : src/sim_plugin.s
+three_part_body.s: three_part_body.cpp.s
+.PHONY : three_part_body.s
 
 # target to generate assembly for a file
-src/sim_plugin.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/src/sim_plugin.cpp.s
-.PHONY : src/sim_plugin.cpp.s
+three_part_body.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/three_part_body.cpp.s
+.PHONY : three_part_body.cpp.s
 
 # Help Target
 help:
@@ -331,6 +403,15 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... iBot_v1"
+	@echo "... common.o"
+	@echo "... common.i"
+	@echo "... common.s"
+	@echo "... coppelia_interface.o"
+	@echo "... coppelia_interface.i"
+	@echo "... coppelia_interface.s"
+	@echo "... differential_chassis.o"
+	@echo "... differential_chassis.i"
+	@echo "... differential_chassis.s"
 	@echo "... home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.o"
 	@echo "... home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.i"
 	@echo "... home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.s"
@@ -340,15 +421,15 @@ help:
 	@echo "... home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.o"
 	@echo "... home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.i"
 	@echo "... home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.s"
-	@echo "... src/sim_data.o"
-	@echo "... src/sim_data.i"
-	@echo "... src/sim_data.s"
-	@echo "... src/sim_main.o"
-	@echo "... src/sim_main.i"
-	@echo "... src/sim_main.s"
-	@echo "... src/sim_plugin.o"
-	@echo "... src/sim_plugin.i"
-	@echo "... src/sim_plugin.s"
+	@echo "... motor.o"
+	@echo "... motor.i"
+	@echo "... motor.s"
+	@echo "... sim_main.o"
+	@echo "... sim_main.i"
+	@echo "... sim_main.s"
+	@echo "... three_part_body.o"
+	@echo "... three_part_body.i"
+	@echo "... three_part_body.s"
 .PHONY : help
 
 

@@ -1,10 +1,8 @@
-#include <iostream>
-#include "/home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/include/simLib.h"
 #include <unistd.h>
 
-#include "sim_plugin.h"
+#include "coppelia_interface.h"
 #include "sim_main.h"
-#include "sim_data.h"
+#include "common.h"
 
 #define strConCat(x, y, z) x y z
 #define PLUGIN_NAME "iBot_v1"
