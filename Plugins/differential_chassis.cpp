@@ -27,11 +27,15 @@ void DifferentialChassis::moveToPoint(const Point &target)
     float v1 = (r + D) / r * VEL_SET;
     float v2 = (r - D) / r * VEL_SET;
 
+    left_wheel->setVelocity(v1);
+    right_wheel->setVelocity(v2);
+
     setWheelVelocity(v1, v2);
 }
 
 void DifferentialChassis::setWheelVelocity(const float v1, const float v2)
 {
+    std::cout << "chassis        " << v1 << "    " << v2 << std::endl;
     left_wheel->setVelocity(v1);
     right_wheel->setVelocity(v2);
 }

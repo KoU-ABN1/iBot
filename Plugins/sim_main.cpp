@@ -5,7 +5,7 @@ void mainSimulation()
 {
     updateAllInfo();
 
-    DifferentialChassis chassis;
+    static DifferentialChassis chassis;
     static ThreePartBody body;
 
     Point target = chassis.BezierPlanner();

@@ -23,8 +23,8 @@ public:
 private:
     int handle;
 
-    float VEL_MAX = 3;
-    float ACC_MAX = 1;
+    float VEL_MAX = 10;
+    float ACC_MAX = 2;
 
     float vel_last = 0;
     float time_last = time_cur;

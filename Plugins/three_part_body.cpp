@@ -35,6 +35,8 @@ void ThreePartBody::trackCustomerFace()
     error_x_last = error_x;
     error_y_last = error_y;
 
+    std::cout << "body      " << v1 << "    " << v2 << std::endl;
+
     waist_joint->setVelocity(-v1);
     head_joint_2->setVelocity(-v2);
 }
