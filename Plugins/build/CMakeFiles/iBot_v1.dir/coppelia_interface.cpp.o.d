@@ -382,4 +382,5 @@ CMakeFiles/iBot_v1.dir/coppelia_interface.cpp.o: \
  /usr/include/c++/7/backward/auto_ptr.h \
  /home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/include/simLib.h \
  /home/hao/iBot/Plugins/differential_chassis.h \
- /home/hao/iBot/Plugins/motor.h /home/hao/iBot/Plugins/three_part_body.h
+ /home/hao/iBot/Plugins/motor.h /home/hao/iBot/Plugins/three_part_body.h \
+ /home/hao/iBot/Plugins/arm.h

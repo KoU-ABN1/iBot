@@ -22,7 +22,5 @@ void Motor::setVelocity(const float vel_set)
     time_last = time_cur;
     vel_last = v;
 
-    //std::cout << vel_set << "          " << v << std::endl;
-
     simSetJointTargetVelocity(handle, v);
 }

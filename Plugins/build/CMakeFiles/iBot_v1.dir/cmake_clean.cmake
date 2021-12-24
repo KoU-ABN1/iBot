@@ -1,8 +1,10 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/iBot_v1.dir/actions.cpp.o"
+  "CMakeFiles/iBot_v1.dir/actions.cpp.o.d"
   "CMakeFiles/iBot_v1.dir/common.cpp.o"
   "CMakeFiles/iBot_v1.dir/common.cpp.o.d"
-  "CMakeFiles/iBot_v1.dir/coppelia_interface.cpp.o"
-  "CMakeFiles/iBot_v1.dir/coppelia_interface.cpp.o.d"
+  "CMakeFiles/iBot_v1.dir/coppeliasim_interface.cpp.o"
+  "CMakeFiles/iBot_v1.dir/coppeliasim_interface.cpp.o.d"
   "CMakeFiles/iBot_v1.dir/differential_chassis.cpp.o"
   "CMakeFiles/iBot_v1.dir/differential_chassis.cpp.o.d"
   "CMakeFiles/iBot_v1.dir/home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.cpp.o"
@@ -17,6 +19,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/iBot_v1.dir/sim_main.cpp.o.d"
   "CMakeFiles/iBot_v1.dir/three_part_body.cpp.o"
   "CMakeFiles/iBot_v1.dir/three_part_body.cpp.o.d"
+  "CMakeFiles/iBot_v1.dir/two_dof_arm.cpp.o"
+  "CMakeFiles/iBot_v1.dir/two_dof_arm.cpp.o.d"
   "libiBot_v1.pdb"
   "libiBot_v1.so"
 )

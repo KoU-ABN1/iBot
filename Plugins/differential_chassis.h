@@ -6,9 +6,11 @@
 class DifferentialChassis
 {
 public:
-    Point BezierPlanner();
-    void moveToPoint(const Point &target);
-    void setWheelVelocity(const float v1, const float v2);
+    Eigen::Vector2f BezierPlanner();
+
+    void moveToPointWithArc(const Eigen::Vector2f &target);
+    void moveToPointWithLine(const Eigen::Vector2f &target);
+    void stop();
 
 private:
     const float D = 0.27;
@@ -16,4 +18,6 @@ private:
 
     std::unique_ptr<Motor> left_wheel = std::make_unique<Motor>(Motor(handles.left_wheel));
     std::unique_ptr<Motor> right_wheel = std::make_unique<Motor>(Motor(handles.right_wheel));
+
+    void setWheelVelocity(const float v1, const float v2);
 };

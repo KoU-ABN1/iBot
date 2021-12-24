@@ -174,6 +174,30 @@ iBot_v1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/build
 .PHONY : iBot_v1/fast
 
+actions.o: actions.cpp.o
+.PHONY : actions.o
+
+# target to build an object file
+actions.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/actions.cpp.o
+.PHONY : actions.cpp.o
+
+actions.i: actions.cpp.i
+.PHONY : actions.i
+
+# target to preprocess a source file
+actions.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/actions.cpp.i
+.PHONY : actions.cpp.i
+
+actions.s: actions.cpp.s
+.PHONY : actions.s
+
+# target to generate assembly for a file
+actions.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/actions.cpp.s
+.PHONY : actions.cpp.s
+
 common.o: common.cpp.o
 .PHONY : common.o
 
@@ -198,29 +222,29 @@ common.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/common.cpp.s
 .PHONY : common.cpp.s
 
-coppelia_interface.o: coppelia_interface.cpp.o
-.PHONY : coppelia_interface.o
+coppeliasim_interface.o: coppeliasim_interface.cpp.o
+.PHONY : coppeliasim_interface.o
 
 # target to build an object file
-coppelia_interface.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/coppelia_interface.cpp.o
-.PHONY : coppelia_interface.cpp.o
+coppeliasim_interface.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/coppeliasim_interface.cpp.o
+.PHONY : coppeliasim_interface.cpp.o
 
-coppelia_interface.i: coppelia_interface.cpp.i
-.PHONY : coppelia_interface.i
+coppeliasim_interface.i: coppeliasim_interface.cpp.i
+.PHONY : coppeliasim_interface.i
 
 # target to preprocess a source file
-coppelia_interface.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/coppelia_interface.cpp.i
-.PHONY : coppelia_interface.cpp.i
+coppeliasim_interface.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/coppeliasim_interface.cpp.i
+.PHONY : coppeliasim_interface.cpp.i
 
-coppelia_interface.s: coppelia_interface.cpp.s
-.PHONY : coppelia_interface.s
+coppeliasim_interface.s: coppeliasim_interface.cpp.s
+.PHONY : coppeliasim_interface.s
 
 # target to generate assembly for a file
-coppelia_interface.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/coppelia_interface.cpp.s
-.PHONY : coppelia_interface.cpp.s
+coppeliasim_interface.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/coppeliasim_interface.cpp.s
+.PHONY : coppeliasim_interface.cpp.s
 
 differential_chassis.o: differential_chassis.cpp.o
 .PHONY : differential_chassis.o
@@ -390,6 +414,30 @@ three_part_body.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/three_part_body.cpp.s
 .PHONY : three_part_body.cpp.s
 
+two_dof_arm.o: two_dof_arm.cpp.o
+.PHONY : two_dof_arm.o
+
+# target to build an object file
+two_dof_arm.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/two_dof_arm.cpp.o
+.PHONY : two_dof_arm.cpp.o
+
+two_dof_arm.i: two_dof_arm.cpp.i
+.PHONY : two_dof_arm.i
+
+# target to preprocess a source file
+two_dof_arm.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/two_dof_arm.cpp.i
+.PHONY : two_dof_arm.cpp.i
+
+two_dof_arm.s: two_dof_arm.cpp.s
+.PHONY : two_dof_arm.s
+
+# target to generate assembly for a file
+two_dof_arm.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/two_dof_arm.cpp.s
+.PHONY : two_dof_arm.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -403,12 +451,15 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... iBot_v1"
+	@echo "... actions.o"
+	@echo "... actions.i"
+	@echo "... actions.s"
 	@echo "... common.o"
 	@echo "... common.i"
 	@echo "... common.s"
-	@echo "... coppelia_interface.o"
-	@echo "... coppelia_interface.i"
-	@echo "... coppelia_interface.s"
+	@echo "... coppeliasim_interface.o"
+	@echo "... coppeliasim_interface.i"
+	@echo "... coppeliasim_interface.s"
 	@echo "... differential_chassis.o"
 	@echo "... differential_chassis.i"
 	@echo "... differential_chassis.s"
@@ -430,6 +481,9 @@ help:
 	@echo "... three_part_body.o"
 	@echo "... three_part_body.i"
 	@echo "... three_part_body.s"
+	@echo "... two_dof_arm.o"
+	@echo "... two_dof_arm.i"
+	@echo "... two_dof_arm.s"
 .PHONY : help
 
 

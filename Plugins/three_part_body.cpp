@@ -5,7 +5,7 @@ void ThreePartBody::trackCustomerFace()
     const float kp = 5;
     const float ki = 0.01;
     const float kd = 0;
-    const float tolerance = 0.02;
+    const float tolerance = 0.01;
     const float vel_max = 1;
 
     static float integral_x = 0;
@@ -29,13 +29,18 @@ void ThreePartBody::trackCustomerFace()
         else
             integral_y = 0;
     }
+    else
+    {
+        integral_x = 0;
+        integral_y = 0;
+    }
 
     integral_x += error_x;
     integral_y += error_y;
     error_x_last = error_x;
     error_y_last = error_y;
 
-    std::cout << "body      " << v1 << "    " << v2 << std::endl;
+    std::cout << head.x << "         " << head.y << std::endl;
 
     waist_joint->setVelocity(-v1);
     head_joint_2->setVelocity(-v2);

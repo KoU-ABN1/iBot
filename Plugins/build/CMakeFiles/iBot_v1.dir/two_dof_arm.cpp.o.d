@@ -1,6 +1,6 @@
-CMakeFiles/iBot_v1.dir/sim_main.cpp.o: \
- /home/hao/iBot/Plugins/sim_main.cpp /usr/include/stdc-predef.h \
- /home/hao/iBot/Plugins/sim_main.h /home/hao/iBot/Plugins/common.h \
+CMakeFiles/iBot_v1.dir/two_dof_arm.cpp.o: \
+ /home/hao/iBot/Plugins/two_dof_arm.cpp /usr/include/stdc-predef.h \
+ /home/hao/iBot/Plugins/two_dof_arm.h /home/hao/iBot/Plugins/common.h \
  /usr/include/c++/7/iostream \
  /usr/include/x86_64-linux-gnu/c++/7/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/7/bits/os_defines.h \
@@ -368,7 +368,4 @@ CMakeFiles/iBot_v1.dir/sim_main.cpp.o: \
  /home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/include/simLib.h \
  /home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/include/simConst.h \
  /home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/include/simTypes.h \
- /home/hao/iBot/Plugins/actions.h \
- /home/hao/iBot/Plugins/differential_chassis.h \
- /home/hao/iBot/Plugins/motor.h /home/hao/iBot/Plugins/three_part_body.h \
- /home/hao/iBot/Plugins/two_dof_arm.h
+ /home/hao/iBot/Plugins/motor.h

@@ -1,15 +1,21 @@
 #include "sim_main.h"
-#include "motor.h"
+#include "common.h"
+#include "actions.h"
 
 void mainSimulation()
 {
     updateAllInfo();
 
-    static DifferentialChassis chassis;
-    static ThreePartBody body;
+    static Robot robot;
+    static int state = WAIT_AT_DOOR;
 
-    Point target = chassis.BezierPlanner();
-    chassis.moveToPoint(target);
+    switch (state)
+    {
+    case WAIT_AT_DOOR:
+        robot.waitAtDoor();
+        state = MOVE_TO_CUSTOMER;
 
-    body.trackCustomerFace();
+    case MOVE_TO_CUSTOMER:
+        robot.moveToCustomer();
+    }
 }

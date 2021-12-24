@@ -23,12 +23,14 @@ coppeliasim_add_plugin(
     iBot_v1
     LEGACY
     SOURCES
-    coppelia_interface.cpp
+    coppeliasim_interface.cpp
     sim_main.cpp
     common.cpp
     differential_chassis.cpp
     three_part_body.cpp
     motor.cpp
+    two_dof_arm.cpp
+    actions.cpp
     ${COPPELIASIM_COMMON_DIR}/scriptFunctionData.cpp
     ${COPPELIASIM_COMMON_DIR}/scriptFunctionDataItem.cpp
 )

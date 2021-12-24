@@ -1,6 +1,6 @@
 #include <unistd.h>
 
-#include "coppelia_interface.h"
+#include "coppeliasim_interface.h"
 #include "sim_main.h"
 #include "common.h"
 
@@ -73,7 +73,7 @@ SIM_DLLEXPORT unsigned char simStart(void *, int)
     simRegisterScriptCallbackFunction(strConCat(LUA_START_COMMAND, "@", PLUGIN_NAME), strConCat("", LUA_START_COMMAND, ""), LUA_START_CALLBACK);
     simRegisterScriptCallbackFunction(strConCat(LUA_VISION_COMMAND, "@", PLUGIN_NAME), strConCat("", LUA_VISION_COMMAND, ""), LUA_VISION_CALLBACK);
 
-    return (11); // Return the version number of this plugin. 11 is for CoppeliaSim versions after CoppeliaSim 4.2.0
+    return (11); // The version number of this plugin. 11 for CoppeliaSim versions after 4.2.0
 }
 
 SIM_DLLEXPORT void simEnd()
