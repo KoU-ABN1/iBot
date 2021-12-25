@@ -1,43 +1,26 @@
 #include "common.h"
 
 SimHandles handles;
-RobotInfo robot;
-CustomerInfo customer;
-VisionInfo head; // updated by sim.sendVisionInfo in sim_plugin.cpp
-float time_cur;
+SimInfo data;
 
 void updateAllInfo()
 {
-    updateCustomerInfo();
-    updateRobotInfo();
-    updateTime();
-}
-
-void updateCustomerInfo()
-{
     float position[3];
     float orientation[3];
+
     simGetObjectPosition(handles.customer, -1, position);
     simGetObjectOrientation(handles.customer, -1, orientation);
-    customer.x = position[0];
-    customer.y = position[1];
-    customer.yaw = orientation[2];
-}
+    data.customer_x = position[0];
+    data.customer_y = position[1];
+    data.customer_yaw = orientation[2];
 
-void updateRobotInfo()
-{
-    float position[3];
-    float orientation[3];
     simGetObjectPosition(handles.robot, -1, position);
     simGetObjectOrientation(handles.robot, -1, orientation);
-    robot.x = position[0];
-    robot.y = position[1];
-    robot.yaw = orientation[2];
-}
+    data.robot_x = position[0];
+    data.robot_y = position[1];
+    data.robot_yaw = orientation[2];
 
-void updateTime()
-{
-    time_cur = simGetSimulationTime();
+    data.time_cur = simGetSimulationTime();
 }
 
 void getObjectHandles(std::vector<int> data)

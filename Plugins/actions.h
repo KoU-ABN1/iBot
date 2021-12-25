@@ -5,16 +5,27 @@
 #include "three_part_body.h"
 #include "two_dof_arm.h"
 
+enum Actions
+{
+    WAIT_AT_DOOR,
+    MOVE_TO_CUSTOMER,
+    INTERACT_WITH_CUSTOMER_AT_DOOR,
+    GET_TABLE_NUMBER,
+    TAKE_CUSTOMER_TO_TABLE,
+    INTERACT_WITH_CUSTOMER_AT_TABLE,
+    BACK_TO_DOOR
+};
+
 class Robot
 {
 public:
-    void waitAtDoor();
-    void moveToCustomer();
-    void interactWithCustomerAtDoor();
-    void getTableNumber();
-    void takeCustomerToTable();
-    void interactWithCustomerAtTable();
-    void backToDoor();
+    int waitAtDoor();
+    int moveToCustomer();
+    int interactWithCustomerAtDoor();
+    int getTableNumber();
+    int takeCustomerToTable();
+    int interactWithCustomerAtTable();
+    int backToDoor();
 
 private:
     std::unique_ptr<DifferentialChassis> chassis = std::make_unique<DifferentialChassis>(DifferentialChassis());

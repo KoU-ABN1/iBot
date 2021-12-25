@@ -27,5 +27,5 @@ private:
     float ACC_MAX = 2;
 
     float vel_last = 0;
-    float time_last = time_cur;
+    float time_last = data.time_cur;
 };

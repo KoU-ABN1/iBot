@@ -2,14 +2,14 @@
 
 Eigen::Vector2f DifferentialChassis::BezierPlanner()
 {
-    const float bias = 0.5;
+    const float bias = 1;
 
-    Eigen::Vector2f p1(robot.x, robot.y);
-    Eigen::Vector2f p2(robot.x + bias * cos(robot.yaw), robot.y + bias * sin(robot.yaw));
-    Eigen::Vector2f p3(customer.x + bias * cos(customer.yaw), customer.y + bias * sin(customer.yaw));
-    Eigen::Vector2f p4(customer.x, customer.y);
+    Eigen::Vector2f p1(data.robot_x, data.robot_y);
+    Eigen::Vector2f p2(data.robot_x + bias * cos(data.robot_yaw), data.robot_y + bias * sin(data.robot_yaw));
+    Eigen::Vector2f p3(data.customer_x + bias * cos(data.customer_yaw), data.customer_y + bias * sin(data.customer_yaw));
+    Eigen::Vector2f p4(data.customer_x, data.customer_y);
 
-    float dist = sqrt(pow(customer.x - robot.x, 2) + pow(customer.y - robot.y, 2));
+    float dist = sqrt(pow(data.robot_x - data.customer_x, 2) + pow(data.robot_y - data.customer_y, 2));
     float t = 0.1;
     Eigen::Vector2f target = p1 * (1 - t) * (1 - t) * (1 - t) + p2 * 3 * (1 - t) * (1 - t) * t + p3 * 3 * (1 - t) * t * t + p4 * t * t * t;
 
@@ -24,7 +24,7 @@ Eigen::Vector2f DifferentialChassis::BezierPlanner()
             float pointToDraw[] = {point[0], point[1], 0};
             simAddDrawingObjectItem(handles.drawer, pointToDraw);
         }
-        flag = true;
+        flag = false;
     }
 
     // float pointToDraw[] = {target[0], target[1], 0};
@@ -35,25 +35,27 @@ Eigen::Vector2f DifferentialChassis::BezierPlanner()
 
 void DifferentialChassis::moveToPointWithArc(const Eigen::Vector2f &target)
 {
-    float m = target[0] - robot.x;
-    float n = target[1] - robot.y;
-    float r = (m * m + n * n) / (2 * m * sin(robot.yaw) - 2 * n * cos(robot.yaw));
+    float m = target[0] - data.robot_x;
+    float n = target[1] - data.robot_y;
+    float r = (m * m + n * n) / (2 * m * sin(data.robot_yaw) - 2 * n * cos(data.robot_yaw));
     float v1 = (r + D) / r * VEL_SET;
     float v2 = (r - D) / r * VEL_SET;
 
+    const float move_acc = 0.5;
+
+    left_wheel->setAccMax(move_acc);
+    right_wheel->setAccMax(move_acc);
+
     left_wheel->setVelocity(v1);
     right_wheel->setVelocity(v2);
-
-    setWheelVelocity(v1, v2);
 }
 
 void DifferentialChassis::stop()
 {
-    setWheelVelocity(0, 0);
-}
+    const float brake_acc = 3;
+    left_wheel->setAccMax(brake_acc);
+    right_wheel->setAccMax(brake_acc);
 
-void DifferentialChassis::setWheelVelocity(const float v1, const float v2)
-{
-    left_wheel->setVelocity(v1);
-    right_wheel->setVelocity(v2);
+    left_wheel->setVelocity(0);
+    right_wheel->setVelocity(0);
 }

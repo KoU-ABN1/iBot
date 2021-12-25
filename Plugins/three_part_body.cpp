@@ -3,7 +3,7 @@
 void ThreePartBody::trackCustomerFace()
 {
     const float kp = 5;
-    const float ki = 0.01;
+    const float ki = 0.1;
     const float kd = 0;
     const float tolerance = 0.01;
     const float vel_max = 1;
@@ -13,12 +13,12 @@ void ThreePartBody::trackCustomerFace()
     static float error_x_last = 0;
     static float error_y_last = 0;
 
-    float error_x = head.x - 0.5;
-    float error_y = head.y - 0.5;
+    float error_x = data.head_x - 0.5;
+    float error_y = data.head_y - 0.5;
 
     float v1 = 0, v2 = 0;
 
-    if (head.x >= 0 && head.y >= 0)
+    if (data.head_x >= 0 && data.head_y >= 0)
     {
         if (std::abs(error_x) > tolerance)
             v1 = kp * error_x + ki * integral_x + kd * (error_x - error_x_last);
@@ -40,7 +40,11 @@ void ThreePartBody::trackCustomerFace()
     error_x_last = error_x;
     error_y_last = error_y;
 
-    std::cout << head.x << "         " << head.y << std::endl;
+    waist_joint->setVelMax(0.2);
+    head_joint_2->setVelMax(0.2);
+
+    waist_joint->setAccMax(1);
+    head_joint_2->setAccMax(1);
 
     waist_joint->setVelocity(-v1);
     head_joint_2->setVelocity(-v2);

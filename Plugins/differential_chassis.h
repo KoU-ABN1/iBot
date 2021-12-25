@@ -18,6 +18,4 @@ private:
 
     std::unique_ptr<Motor> left_wheel = std::make_unique<Motor>(Motor(handles.left_wheel));
     std::unique_ptr<Motor> right_wheel = std::make_unique<Motor>(Motor(handles.right_wheel));
-
-    void setWheelVelocity(const float v1, const float v2);
 };

@@ -31,8 +31,8 @@ void LUA_VISION_CALLBACK(SScriptCallBack *cb)
     if (D.readDataFromStack(cb->stackID, inArgs_VISION, inArgs_VISION[0], LUA_VISION_COMMAND))
     {
         std::vector<CScriptFunctionDataItem> *inData = D.getInDataPtr();
-        head.x = inData->at(0).floatData[0];
-        head.y = inData->at(1).floatData[0];
+        data.head_x = inData->at(0).floatData[0];
+        data.head_y = inData->at(1).floatData[0];
     }
     D.pushOutData(CScriptFunctionDataItem(0));
     D.writeDataToStack(cb->stackID);

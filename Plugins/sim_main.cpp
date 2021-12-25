@@ -12,10 +12,45 @@ void mainSimulation()
     switch (state)
     {
     case WAIT_AT_DOOR:
-        robot.waitAtDoor();
-        state = MOVE_TO_CUSTOMER;
+    {
+        state = robot.waitAtDoor();
+        break;
+    }
 
     case MOVE_TO_CUSTOMER:
-        robot.moveToCustomer();
+    {
+        state = robot.moveToCustomer();
+        break;
+    }
+
+    case INTERACT_WITH_CUSTOMER_AT_DOOR:
+    {
+        state = robot.interactWithCustomerAtDoor();
+        break;
+    }
+
+    case GET_TABLE_NUMBER:
+    {
+        state = robot.getTableNumber();
+        break;
+    }
+
+    case TAKE_CUSTOMER_TO_TABLE:
+    {
+        state = robot.takeCustomerToTable();
+        break;
+    }
+
+    case INTERACT_WITH_CUSTOMER_AT_TABLE:
+    {
+        state = robot.interactWithCustomerAtTable();
+        break;
+    }
+
+    case BACK_TO_DOOR:
+    {
+        state = robot.backToDoor();
+        break;
+    }
     }
 }

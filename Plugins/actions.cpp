@@ -1,15 +1,22 @@
 #include "actions.h"
 
-void Robot::waitAtDoor()
+int Robot::waitAtDoor()
 {
-    chassis->stop();
+    const float welcome_dist = 5;
+
+    float dist = sqrt(pow(data.robot_x - data.customer_x, 2) + pow(data.robot_y - data.customer_y, 2));
+
+    if (dist < welcome_dist && data.head_x >= 0 && data.head_y >= 0)
+        return MOVE_TO_CUSTOMER;
+    else
+        return WAIT_AT_DOOR;
 }
 
-void Robot::moveToCustomer()
+int Robot::moveToCustomer()
 {
     const float STOP_DIS = 1.2;
 
-    float dist = sqrt(pow(robot.x - customer.x, 2) + pow(robot.y - customer.y, 2));
+    float dist = sqrt(pow(data.robot_x - data.customer_x, 2) + pow(data.robot_y - data.customer_y, 2));
 
     if (dist > STOP_DIS)
     {
@@ -17,31 +24,48 @@ void Robot::moveToCustomer()
         chassis->moveToPointWithArc(target);
 
         body->trackCustomerFace();
+
+        return MOVE_TO_CUSTOMER;
     }
     else
     {
         chassis->stop();
-
         body->trackCustomerFace();
+
+        WAIT(1, INTERACT_WITH_CUSTOMER_AT_TABLE);
+
+        return MOVE_TO_CUSTOMER;
     }
 }
 
-void Robot::interactWithCustomerAtDoor()
+int Robot::interactWithCustomerAtDoor()
 {
+    WAIT(3, GET_TABLE_NUMBER);
+
+    return INTERACT_WITH_CUSTOMER_AT_DOOR;
 }
 
-void Robot::getTableNumber()
+int Robot::getTableNumber()
 {
+    data.table_number = 8;
+
+    return TAKE_CUSTOMER_TO_TABLE;
 }
 
-void Robot::takeCustomerToTable()
+int Robot::takeCustomerToTable()
 {
+
+    return INTERACT_WITH_CUSTOMER_AT_TABLE;
 }
 
-void Robot::interactWithCustomerAtTable()
+int Robot::interactWithCustomerAtTable()
 {
+
+    return BACK_TO_DOOR;
 }
 
-void Robot::backToDoor()
+int Robot::backToDoor()
 {
+
+    return WAIT_AT_DOOR;
 }

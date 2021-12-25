@@ -18,7 +18,12 @@
         }                                   \
     }
 
-typedef Eigen::Vector2f Point2f;
+#define WAIT(t, s)                               \
+    {                                            \
+        static float time_start = data.time_cur; \
+        if (data.time_cur - time_start > t)      \
+            return s;                            \
+    }
 
 struct SimHandles
 {
@@ -31,58 +36,34 @@ struct SimHandles
     int left_arm_joint_2;
     int right_arm_joint_1;
     int right_arm_joint_2;
+
     int robot;
     int customer;
+
     int drawer;
 };
 
-struct RobotInfo
+struct SimInfo
 {
-    float x;
-    float y;
-    float yaw;
-};
+    float robot_x;
+    float robot_y;
+    float robot_yaw;
 
-struct CustomerInfo
-{
-    float x;
-    float y;
-    float yaw;
-};
+    float customer_x;
+    float customer_y;
+    float customer_yaw;
 
-struct VisionInfo
-{
-    float x;
-    float y;
-};
+    float head_x;
+    float head_y;
 
-struct Point
-{
-    float x;
-    float y;
+    float time_cur;
 
-    Point() {}
-    Point(float t1, float t2) : x(t1), y(t2) {}
-
-    Point operator+(Point p)
-    {
-        return Point(p.x + x, p.y + y);
-    }
-    Point operator*(float k)
-    {
-        return Point(k * x, k * y);
-    }
+    int table_number;
 };
 
 extern SimHandles handles;
-extern RobotInfo robot;
-extern CustomerInfo customer;
-extern VisionInfo head;
-extern float time_cur;
+extern SimInfo data;
 
 void updateAllInfo();
-void updateRobotInfo();
-void updateCustomerInfo();
-void updateTime();
 
 void getObjectHandles(std::vector<int>);

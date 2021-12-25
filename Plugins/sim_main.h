@@ -1,14 +1,3 @@
 #pragma once
 
-enum Actions
-{
-    WAIT_AT_DOOR,
-    MOVE_TO_CUSTOMER,
-    INTEAECT_WITH_CUSTOMER_AT_DOOR,
-    GET_TABLE_NUMBER,
-    TAKE_CUSTOMER_TO_TABLE,
-    INTEAECT_WITH_CUSTOMER_AT_TABLE,
-    BACK_TO_DOOR
-};
-
 void mainSimulation();
