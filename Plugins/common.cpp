@@ -8,19 +8,27 @@ void updateAllInfo()
     float position[3];
     float orientation[3];
 
-    simGetObjectPosition(handles.customer, -1, position);
+    simGetObjectPosition(handles.customer, -1, position); // update customer info
     simGetObjectOrientation(handles.customer, -1, orientation);
     data.customer_x = position[0];
     data.customer_y = position[1];
     data.customer_yaw = orientation[2];
 
-    simGetObjectPosition(handles.robot, -1, position);
+    simGetObjectPosition(handles.robot, -1, position); // update robot info
     simGetObjectOrientation(handles.robot, -1, orientation);
     data.robot_x = position[0];
     data.robot_y = position[1];
     data.robot_yaw = orientation[2];
 
-    data.time_cur = simGetSimulationTime();
+    simGetJointPosition(handles.waist_joint, &data.waist_joint_position); // update joint positions
+    simGetJointPosition(handles.head_joint_1, &data.head_joint_1_position);
+    simGetJointPosition(handles.head_joint_2, &data.head_joint_2_position);
+    simGetJointPosition(handles.left_arm_joint_1, &data.left_arm_joint_1_position);
+    simGetJointPosition(handles.left_arm_joint_2, &data.left_arm_joint_2_position);
+    simGetJointPosition(handles.right_arm_joint_1, &data.right_arm_joint_1_position);
+    simGetJointPosition(handles.right_arm_joint_2, &data.right_arm_joint_2_position);
+
+    data.time_cur = simGetSimulationTime(); // update time
 }
 
 void getObjectHandles(std::vector<int> data)

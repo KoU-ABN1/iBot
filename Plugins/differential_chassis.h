@@ -12,6 +12,9 @@ public:
     void moveToPointWithLine(const Eigen::Vector2f &target);
     void stop();
 
+    void rotateCounterclockwise();
+    void rotateClockwise();
+
 private:
     const float D = 0.27;
     const float VEL_SET = 3;

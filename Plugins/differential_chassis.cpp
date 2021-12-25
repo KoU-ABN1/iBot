@@ -41,8 +41,7 @@ void DifferentialChassis::moveToPointWithArc(const Eigen::Vector2f &target)
     float v1 = (r + D) / r * VEL_SET;
     float v2 = (r - D) / r * VEL_SET;
 
-    const float move_acc = 0.5;
-
+    float move_acc = 0.5;
     left_wheel->setAccMax(move_acc);
     right_wheel->setAccMax(move_acc);
 
@@ -52,10 +51,34 @@ void DifferentialChassis::moveToPointWithArc(const Eigen::Vector2f &target)
 
 void DifferentialChassis::stop()
 {
-    const float brake_acc = 3;
+    float brake_acc = 3;
     left_wheel->setAccMax(brake_acc);
     right_wheel->setAccMax(brake_acc);
 
     left_wheel->setVelocity(0);
     right_wheel->setVelocity(0);
+}
+
+void DifferentialChassis::rotateCounterclockwise()
+{
+    float move_acc = 10;
+    float vel_set = 0.5;
+
+    left_wheel->setAccMax(move_acc);
+    right_wheel->setAccMax(move_acc);
+
+    left_wheel->setVelocity(-vel_set);
+    right_wheel->setVelocity(vel_set);
+}
+
+void DifferentialChassis::rotateClockwise()
+{
+    float move_acc = 10;
+    float vel_set = 0.5;
+
+    left_wheel->setAccMax(move_acc);
+    right_wheel->setAccMax(move_acc);
+
+    left_wheel->setVelocity(vel_set);
+    right_wheel->setVelocity(-vel_set);
 }

@@ -45,20 +45,28 @@ struct SimHandles
 
 struct SimInfo
 {
-    float robot_x;
+    float robot_x; // robot coordinates
     float robot_y;
     float robot_yaw;
 
-    float customer_x;
+    float customer_x; // customer coordinates
     float customer_y;
     float customer_yaw;
 
-    float head_x;
+    float head_x; // position of the customer's head in the camera
     float head_y;
 
-    float time_cur;
+    float waist_joint_position; // joint positions
+    float head_joint_1_position;
+    float head_joint_2_position;
+    float left_arm_joint_1_position;
+    float left_arm_joint_2_position;
+    float right_arm_joint_1_position;
+    float right_arm_joint_2_position;
 
-    int table_number;
+    float time_cur; // current time
+
+    int table_number; // target table number
 };
 
 extern SimHandles handles;

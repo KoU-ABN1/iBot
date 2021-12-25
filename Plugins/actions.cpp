@@ -29,10 +29,24 @@ int Robot::moveToCustomer()
     }
     else
     {
-        chassis->stop();
-        body->trackCustomerFace();
+        // chassis->stop();
+        // body->trackCustomerFace();
 
-        WAIT(1, INTERACT_WITH_CUSTOMER_AT_TABLE);
+        // float tolerance = 5 / 180 * 3.14;
+        // if (data.waist_joint_position > tolerance)
+        //     chassis->rotateCounterclockwise();
+        // else if (data.waist_joint_position < -tolerance)
+        //     chassis->rotateClockwise();
+        // else
+        // {
+        //     chassis->stop();
+        //     WAIT(1, INTERACT_WITH_CUSTOMER_AT_TABLE);
+        // }
+
+        Motor left_wheel(handles.left_wheel);
+        Motor right_wheel(handles.right_wheel);
+
+        float vel_set = 1;
 
         return MOVE_TO_CUSTOMER;
     }

@@ -6,6 +6,8 @@ void mainSimulation()
 {
     updateAllInfo();
 
+    std::cout << data.waist_joint_position << std::endl;
+
     static Robot robot;
     static int state = WAIT_AT_DOOR;
 
