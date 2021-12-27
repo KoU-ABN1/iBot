@@ -29,24 +29,36 @@ int Robot::moveToCustomer()
     }
     else
     {
-        // chassis->stop();
-        // body->trackCustomerFace();
-
-        // float tolerance = 5 / 180 * 3.14;
-        // if (data.waist_joint_position > tolerance)
-        //     chassis->rotateCounterclockwise();
-        // else if (data.waist_joint_position < -tolerance)
-        //     chassis->rotateClockwise();
-        // else
-        // {
-        //     chassis->stop();
-        //     WAIT(1, INTERACT_WITH_CUSTOMER_AT_TABLE);
-        // }
+        body->trackCustomerFace();
 
         Motor left_wheel(handles.left_wheel);
         Motor right_wheel(handles.right_wheel);
+        Motor waist_joint(handles.waist_joint);
 
-        float vel_set = 1;
+        float vel_set = 0.5;
+
+        float d1 = 300.0;
+        float d2 = 540.0;
+
+        float v1 = vel_set * d2 / d1;
+        float v2 = vel_set;
+
+        std::cout << data.waist_joint_position << std::endl;
+
+        if (data.waist_joint_position > 5.0 / 180 * 3.14)
+        {
+            simSetJointTargetVelocity(handles.left_wheel, -v1);
+            simSetJointTargetVelocity(handles.right_wheel, v1);
+            simSetJointTargetVelocity(handles.waist_joint, -v2);
+        }
+        else
+        {
+            simSetJointTargetVelocity(handles.left_wheel, 0);
+            simSetJointTargetVelocity(handles.right_wheel, 0);
+            simSetJointTargetVelocity(handles.waist_joint, 0);
+
+            WAIT(1, INTERACT_WITH_CUSTOMER_AT_DOOR);
+        }
 
         return MOVE_TO_CUSTOMER;
     }
