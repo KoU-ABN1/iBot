@@ -1,5 +1,9 @@
 #include "motor.h"
 
+void Motor::setTargetVelocity(const float vel, const float acc)
+{
+}
+
 void Motor::setVelocity(const float vel_set)
 {
     float v;

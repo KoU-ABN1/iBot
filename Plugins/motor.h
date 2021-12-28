@@ -5,9 +5,12 @@
 class Motor
 {
 public:
-    Motor(int handle_) : handle(handle_) {}
+    Motor(int temp) : handle(temp) {}
+
+    void setTargetVelocity(const float vel, const float acc);
 
     void setVelocity(const float vel_set);
+
     void setPosition(const float pos_set);
 
     void setVelMax(const float vel_max)

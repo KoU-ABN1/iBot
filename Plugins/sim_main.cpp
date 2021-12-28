@@ -6,8 +6,6 @@ void mainSimulation()
 {
     updateAllInfo();
 
-    std::cout << data.waist_joint_position << std::endl;
-
     static Robot robot;
     static int state = WAIT_AT_DOOR;
 
@@ -24,6 +22,8 @@ void mainSimulation()
         state = robot.moveToCustomer();
         break;
     }
+        state = robot.moveToCustomer();
+        break;
 
     case INTERACT_WITH_CUSTOMER_AT_DOOR:
     {
