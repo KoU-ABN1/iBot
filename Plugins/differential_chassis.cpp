@@ -1,6 +1,6 @@
 #include "differential_chassis.h"
 
-void DifferentialChassis::moveToTable(const float vel_set)
+void DifferentialChassis::moveToTable(const float vel, const float acc)
 {
     std::vector<Eigen::Vector2f> nodes;
     nodes.push_back(Eigen::Vector2f(data.robot_x, data.robot_y));
@@ -21,7 +21,7 @@ void DifferentialChassis::moveToTable(const float vel_set)
         dist = sqrt(pow(waypoints[index][0] - data.robot_x, 2) + pow(waypoints[index][1] - data.robot_y, 2));
     }
 
-    moveToPointWithArc(waypoints[index], vel_set, 10);
+    moveToPointWithArc(waypoints[index], vel, 10);
 
     static bool flag2 = true;
     if (flag2)
@@ -106,9 +106,9 @@ void DifferentialChassis::drawWaypoints(const std::vector<Eigen::Vector2f> &wayp
     }
 }
 
-void DifferentialChassis::moveToCustomer(const float vel_set)
+void DifferentialChassis::moveToCustomer(const float vel, const float acc)
 {
-    const float bias = 1;
+    float bias = 1;
     Eigen::Vector2f p1(data.robot_x, data.robot_y);
     Eigen::Vector2f p2(data.robot_x + bias * cos(data.robot_yaw), data.robot_y + bias * sin(data.robot_yaw));
     Eigen::Vector2f p3(data.customer_x + bias * cos(data.customer_yaw), data.customer_y + bias * sin(data.customer_yaw));
@@ -120,57 +120,33 @@ void DifferentialChassis::moveToCustomer(const float vel_set)
     float m = target[0] - data.robot_x;
     float n = target[1] - data.robot_y;
     float r = (m * m + n * n) / (2 * m * sin(data.robot_yaw) - 2 * n * cos(data.robot_yaw));
-    float v1 = (r + D) / r * vel_set;
-    float v2 = (r - D) / r * vel_set;
+    float v1 = (r + TRACK_WIDTH) / r * vel;
+    float v2 = (r - TRACK_WIDTH) / r * vel;
 
-    left_wheel->setVelocity(v1);
-    right_wheel->setVelocity(v2);
+    left_wheel->setTargetVelocity(v1, acc);
+    right_wheel->setTargetVelocity(v2, acc);
 }
 
-void DifferentialChassis::moveToPointWithArc(const Eigen::Vector2f &target, const float vel_set, const float acc_max)
+void DifferentialChassis::moveToPointWithArc(const Eigen::Vector2f &target, const float vel, const float acc)
 {
     float m = target[0] - data.robot_x;
     float n = target[1] - data.robot_y;
     float r = (m * m + n * n) / (2 * m * sin(data.robot_yaw) - 2 * n * cos(data.robot_yaw));
-    float v1 = (r + D) / r * vel_set;
-    float v2 = (r - D) / r * vel_set;
+    float v1 = (r + TRACK_WIDTH) / r * vel;
+    float v2 = (r - TRACK_WIDTH) / r * vel;
 
-    left_wheel->setAccMax(acc_max);
-    right_wheel->setAccMax(acc_max);
-
-    left_wheel->setVelocity(v1);
-    right_wheel->setVelocity(v2);
+    left_wheel->setTargetVelocity(v1, acc);
+    right_wheel->setTargetVelocity(v2, acc);
 }
 
-void DifferentialChassis::stop(const float acc_max)
+void DifferentialChassis::stop(const float acc)
 {
-    left_wheel->setAccMax(acc_max);
-    right_wheel->setAccMax(acc_max);
-
-    left_wheel->setVelocity(0);
-    right_wheel->setVelocity(0);
+    left_wheel->setTargetVelocity(0, acc);
+    right_wheel->setTargetVelocity(0, acc);
 }
 
-void DifferentialChassis::rotateCounterclockwise()
+void DifferentialChassis::rotateInPlace(const float vel, const float acc)
 {
-    float move_acc = 10;
-    float vel_set = 0.5;
-
-    left_wheel->setAccMax(move_acc);
-    right_wheel->setAccMax(move_acc);
-
-    left_wheel->setVelocity(-vel_set);
-    right_wheel->setVelocity(vel_set);
-}
-
-void DifferentialChassis::rotateClockwise()
-{
-    float move_acc = 10;
-    float vel_set = 0.5;
-
-    left_wheel->setAccMax(move_acc);
-    right_wheel->setAccMax(move_acc);
-
-    left_wheel->setVelocity(vel_set);
-    right_wheel->setVelocity(-vel_set);
+    left_wheel->setTargetVelocity(-vel, acc);
+    right_wheel->setTargetVelocity(vel, acc);
 }

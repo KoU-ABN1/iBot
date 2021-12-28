@@ -2,29 +2,33 @@
 
 void Motor::setTargetVelocity(const float vel, const float acc)
 {
+    simSetObjectInt32Parameter(handle, sim_jointintparam_ctrl_enabled, 0); // enable velocity control mode;
+
+    if (acc < 0)
+    {
+        simSetJointTargetVelocity(handle, vel);
+    }
+    else
+    {
+        float v;
+        float dv = vel - vel_last;
+        float dt = data.time_cur - time_last;
+
+        if (dv / dt > acc)
+            v = vel_last + acc * dt;
+        else if (dv / dt < -acc)
+            v = vel_last - acc * dt;
+        else
+            v = vel;
+
+        time_last = data.time_cur;
+        vel_last = v;
+
+        simSetJointTargetVelocity(handle, v);
+    }
 }
 
-void Motor::setVelocity(const float vel_set)
+void Motor::setTargetPosition(const float pos)
 {
-    float v;
-
-    float dv = vel_set - vel_last;
-    float dt = data.time_cur - time_last;
-
-    if (dv / dt > ACC_MAX)
-        v = vel_last + ACC_MAX * dt;
-    else if (dv / dt < -ACC_MAX)
-        v = vel_last - ACC_MAX * dt;
-    else
-        v = vel_set;
-
-    if (v > VEL_MAX)
-        v = VEL_MAX;
-    else if (v < -VEL_MAX)
-        v = -VEL_MAX;
-
-    time_last = data.time_cur;
-    vel_last = v;
-
-    simSetJointTargetVelocity(handle, v);
+    simSetObjectInt32Parameter(handle, sim_jointintparam_ctrl_enabled, 1); // enable position control mode
 }

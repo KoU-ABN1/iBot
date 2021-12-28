@@ -5,29 +5,16 @@
 class Motor
 {
 public:
-    Motor(int temp) : handle(temp) {}
+    Motor(int t1) : handle(t1) {}
 
-    void setTargetVelocity(const float vel, const float acc);
+    void setTargetVelocity(const float vel, const float acc = ACC_DEFAULT);
 
-    void setVelocity(const float vel_set);
-
-    void setPosition(const float pos_set);
-
-    void setVelMax(const float vel_max)
-    {
-        VEL_MAX = vel_max;
-    }
-
-    void setAccMax(const float acc_max)
-    {
-        ACC_MAX = acc_max;
-    }
+    void setTargetPosition(const float pos);
 
 private:
     int handle;
 
-    float VEL_MAX = 10;
-    float ACC_MAX = 2;
+    constexpr static float ACC_DEFAULT = -1;
 
     float vel_last = 0;
     float time_last = data.time_cur;

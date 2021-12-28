@@ -18,13 +18,15 @@ int Robot::moveToCustomer()
 
     if (dist > STOP_DIS)
     {
-        chassis->moveToCustomer(1);
+        chassis->moveToCustomer(3, 1);
         body->trackCustomerFace();
 
         return MOVE_TO_CUSTOMER;
     }
     else
     {
+        body->trackCustomerFace();
+
         float vel_set = 0.5;
 
         const float D1 = 300.0;
@@ -95,7 +97,7 @@ int Robot::takeCustomerToTable()
     {
     case 0:
     {
-        chassis->moveToTable(2);
+        chassis->moveToTable(3);
         Eigen::Vector2f target(1.5, -6);
         float dist = sqrt(pow(target[0] - data.robot_x, 2) + pow(target[1] - data.robot_y, 2));
         if (dist < 0.2)
