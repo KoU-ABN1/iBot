@@ -22,22 +22,6 @@ void DifferentialChassis::moveToTable(const float vel, const float acc)
     }
 
     moveToPointWithArc(waypoints[index], vel, 10);
-
-    static bool flag2 = true;
-    if (flag2)
-    {
-        float d = atan2(nodes[1][1] - data.robot_y, nodes[1][0] - data.robot_x);
-        if (abs(d - data.robot_yaw) > 0.1)
-        {
-            simSetJointTargetVelocity(handles.left_wheel, -3);
-            simSetJointTargetVelocity(handles.right_wheel, 3);
-        }
-        else
-        {
-            stop(1);
-            flag2 = false;
-        }
-    }
 }
 
 std::vector<Eigen::Vector2f> DifferentialChassis::generateWaypoints(const std::vector<Eigen::Vector2f> &nodes)

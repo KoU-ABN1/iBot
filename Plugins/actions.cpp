@@ -97,6 +97,24 @@ int Robot::takeCustomerToTable()
     {
     case 0:
     {
+        float tolerance = 0.1;
+        float target_yaw = atan2(data.door_y - data.robot_y, data.door_x - data.robot_x);
+        float yaw_diff = rectifyAngle(target_yaw - data.robot_yaw);
+        std::cout << target_yaw << std::endl;
+        if (yaw_diff > tolerance)
+            chassis->rotateInPlace(3);
+        else if (yaw_diff < -tolerance)
+            chassis->rotateInPlace(-3);
+        else
+        {
+            chassis->stop(1);
+            substate = 1;
+        }
+
+        break;
+    }
+    case 1:
+    {
         chassis->moveToTable(3);
         Eigen::Vector2f target(1.5, -6);
         float dist = sqrt(pow(target[0] - data.robot_x, 2) + pow(target[1] - data.robot_y, 2));
@@ -105,7 +123,7 @@ int Robot::takeCustomerToTable()
         break;
     }
 
-    case 1:
+    case 2:
     {
         chassis->stop(1);
         break;

@@ -25,6 +25,8 @@
             return s;                            \
     }
 
+const float PI = 3.14159265;
+
 struct SimHandles
 {
     int left_wheel;
@@ -67,11 +69,22 @@ struct SimInfo
     float time_cur; // current time
 
     int table_number; // target table number
+
+    float door_x = 4;
+    float door_y = 0;
 };
 
 extern SimHandles handles;
 extern SimInfo data;
 
 void updateAllInfo();
-
 void getObjectHandles(std::vector<int>);
+
+inline float rectifyAngle(float angle)
+{
+    if (angle > PI)
+        angle -= 2 * PI;
+    else if (angle <= -PI)
+        angle += 2 * PI;
+    return angle;
+}
