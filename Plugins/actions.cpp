@@ -14,12 +14,12 @@ int Robot::waitAtDoor()
 int Robot::moveToCustomer()
 {
     static int substate = GET_CLOSE_TO_CUSTOMER;
-    const float STOP_DIS = 1.2;
 
     switch (substate)
     {
     case GET_CLOSE_TO_CUSTOMER:
     {
+        const float STOP_DIS = 1.2;
         float dist = sqrt(pow(data.robot_x - data.customer_x, 2) + pow(data.robot_y - data.customer_y, 2));
 
         if (dist > STOP_DIS)
@@ -58,22 +58,33 @@ int Robot::moveToCustomer()
 
 int Robot::interactWithCustomerAtDoor()
 {
-    // Eigen::Vector3f target;   // target position
-    // Eigen::Vector3f arm_base; // arm_base position
+    float pos[3]; // left_arm_base position
+    simGetObjectPosition(handles.right_arm_joint_1, -1, pos);
+    Eigen::Vector3f left_arm_base(pos[0], pos[1], pos[2]);
+    Eigen::Vector3f target_abs(5, 0, 0); // target position in the world coordinate system
 
-    // float m = target[0] - arm_base[0];
-    // float n = target[1] - arm_base[1];
-    // float p = target[2] - arm_base[2];
+    Eigen::Vector3f target = target_abs - left_arm_base;
 
-    // float theta2 = atan2(n, p);
-    // float r = m * sin(theta2);
-    // float theta1 = atan2(r, n);
+    std::cout << target[0] << "   " << target[1] << "   " << target[2] << std::endl;
 
-    // simSetObjectInt32Parameter(handles.left_arm_joint_1, sim_jointintparam_ctrl_enabled, 1); // enable postion control
-    // simSetObjectInt32Parameter(handles.left_arm_joint_2, sim_jointintparam_ctrl_enabled, 1);
+    std::vector<std::vector<float>> theta = left_arm->inverseKinematics(target);
 
-    // simSetJointTargetPosition(handles.left_arm_joint_1, theta1);
-    // simSetJointTargetPosition(handles.left_arm_joint_2, theta2);
+    simSetObjectInt32Parameter(handles.left_arm_joint_1, sim_jointintparam_ctrl_enabled, 1); // enable postion control
+    simSetObjectInt32Parameter(handles.left_arm_joint_2, sim_jointintparam_ctrl_enabled, 1);
+
+    for (int i = 0; i < theta.size(); i++)
+    {
+        if (theta[i][1] < 0)
+        {
+            simSetJointTargetPosition(handles.left_arm_joint_1, theta[i][0]);
+            simSetJointTargetPosition(handles.left_arm_joint_2, -theta[i][1]);
+        }
+        Eigen::Vector3f result = left_arm->forwardKinematics(theta[i]);
+        std::cout << theta[i][0] << "       " << theta[i][1] << std::endl;
+        std::cout << result[0] << "      " << result[1] << "      " << result[2] << "      " << std::endl;
+    }
+
+    std::cout << std::endl;
 
     WAIT(5, GET_TABLE_NUMBER);
 
@@ -92,12 +103,12 @@ int Robot::getTableNumber()
 int Robot::takeCustomerToTable()
 {
     static int substate = FACE_TO_DOOR;
-    float vel_set = 3;
 
     switch (substate)
     {
     case FACE_TO_DOOR:
     {
+        float vel_set = 3;
         float target_yaw = atan2(data.door_y - data.robot_y, data.door_x - data.robot_x);
 
         if (chassis->rotateInPlacePosition(target_yaw, vel_set))
@@ -107,9 +118,11 @@ int Robot::takeCustomerToTable()
 
     case MOVE_TO_TABLE:
     {
+        float vel_set = 3;
+        const float STOP_DIS = 0.2;
+
         chassis->moveToTable(vel_set);
 
-        const float STOP_DIS = 0.2;
         float dist = sqrt(pow(data.table_x - data.robot_x, 2) + pow(data.table_y - data.robot_y, 2));
         if (dist < STOP_DIS)
             substate = FACE_TO_CUSTOMER;

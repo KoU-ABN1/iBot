@@ -10,19 +10,19 @@ public:
     /**
      * @brief Set the target velocity
      * 
-     * @param velocity target velocity
-     * @param acceleration maximum acceleration (set to negetive to disable it)
+     * @param velocity Target velocity
+     * @param acceleration Maximum acceleration (set to negetive to disable it)
      */
     void setTargetVelocity(const float velocity, const float acceleration = ACC_DEFAULT);
 
     /**
      * @brief Set the target position
      * 
-     * @param position target position
+     * @param position Target position
      * @param upper_velocity upper velocity limit
-     * @param kp pid parameter kp
-     * @param ki pid parameter ki
-     * @param kd pid parameter kd
+     * @param kp PID parameter kp
+     * @param ki PID parameter ki
+     * @param kd PID parameter kd
      */
     void setTargetPosition(const float position,
                            const float upper_velocity = UPPER_VELOCITY_DEFAULT,
