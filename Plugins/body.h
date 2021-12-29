@@ -6,7 +6,13 @@
 class Body
 {
 public:
-    void trackCustomerFace();
+    void trackCustomerFace(const float vel_base = 0,
+                           const float vel_max = 0.5,
+                           const float kp = 5,
+                           const float ki = 0.1,
+                           const float kd = 0);
+
+    void stop();
 
 private:
     std::unique_ptr<Motor> waist_joint = std::make_unique<Motor>(Motor(handles.waist_joint));

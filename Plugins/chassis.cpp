@@ -129,8 +129,26 @@ void Chassis::stop(const float acc)
     right_wheel->setTargetVelocity(0, acc);
 }
 
-void Chassis::rotateInPlace(const float vel, const float acc)
+void Chassis::rotateInPlaceVelocity(const float vel, const float acc)
 {
     left_wheel->setTargetVelocity(-vel, acc);
     right_wheel->setTargetVelocity(vel, acc);
+}
+
+bool Chassis::rotateInPlacePosition(const float target_yaw, const float vel, const float acc)
+{
+    float tolerance = 2.0 / 180.0 * PI;
+    float yaw_diff = rectifyAngle(target_yaw - data.robot_yaw);
+
+    if (yaw_diff > tolerance)
+        rotateInPlaceVelocity(vel, acc);
+    else if (yaw_diff < -tolerance)
+        rotateInPlaceVelocity(-vel, acc);
+    else
+    {
+        stop();
+        return true;
+    }
+
+    return false;
 }

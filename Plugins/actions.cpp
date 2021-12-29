@@ -7,51 +7,53 @@ int Robot::waitAtDoor()
 
     if (dist < WELCOME_DIS)
         return MOVE_TO_CUSTOMER;
-    else
-        return WAIT_AT_DOOR;
+
+    return WAIT_AT_DOOR;
 }
 
 int Robot::moveToCustomer()
 {
+    static int substate = GET_CLOSE_TO_CUSTOMER;
     const float STOP_DIS = 1.2;
-    float dist = sqrt(pow(data.robot_x - data.customer_x, 2) + pow(data.robot_y - data.customer_y, 2));
 
-    if (dist > STOP_DIS)
+    switch (substate)
     {
-        chassis->moveToCustomer(3, 1);
-        body->trackCustomerFace();
-
-        return MOVE_TO_CUSTOMER;
-    }
-    else
+    case GET_CLOSE_TO_CUSTOMER:
     {
-        body->trackCustomerFace();
+        float dist = sqrt(pow(data.robot_x - data.customer_x, 2) + pow(data.robot_y - data.customer_y, 2));
 
-        float vel_set = 0.5;
-
-        const float D1 = 300.0;
-        const float D2 = 540.0;
-
-        float v1 = vel_set * D2 / D1;
-        float v2 = vel_set;
-
-        if (data.waist_joint_position > 5.0 / 180 * 3.14)
+        if (dist > STOP_DIS)
         {
-            simSetJointTargetVelocity(handles.left_wheel, -v1);
-            simSetJointTargetVelocity(handles.right_wheel, v1);
-            simSetJointTargetVelocity(handles.waist_joint, -v2);
+            chassis->moveToCustomer(3, 1);
+            body->trackCustomerFace();
+        }
+        else
+            substate = ADJUST_POSTURE;
+        break;
+    }
+
+    case ADJUST_POSTURE:
+    {
+        float vel_set = 0.6;
+        float tolerance = 2.0 / 180.0 * PI;
+        float vel_wheel = vel_set * TRACK_WIDTH / WHEEL_DIAMETER;
+
+        if (data.waist_joint_position > tolerance)
+        {
+            chassis->rotateInPlaceVelocity(vel_wheel);
+            body->trackCustomerFace(vel_set, 2 * vel_set, 0.1, 0.01, 0);
         }
         else
         {
-            simSetJointTargetVelocity(handles.left_wheel, 0);
-            simSetJointTargetVelocity(handles.right_wheel, 0);
-            simSetJointTargetVelocity(handles.waist_joint, 0);
-
-            WAIT(1, INTERACT_WITH_CUSTOMER_AT_DOOR);
+            chassis->stop();
+            body->stop();
+            return INTERACT_WITH_CUSTOMER_AT_DOOR;
         }
-
-        return MOVE_TO_CUSTOMER;
+        break;
     }
+    }
+
+    return MOVE_TO_CUSTOMER;
 }
 
 int Robot::interactWithCustomerAtDoor()
@@ -96,26 +98,19 @@ int Robot::takeCustomerToTable()
     {
     case FACE_TO_DOOR:
     {
-        float tolerance = 0.1;
         float target_yaw = atan2(data.door_y - data.robot_y, data.door_x - data.robot_x);
-        float yaw_diff = rectifyAngle(target_yaw - data.robot_yaw);
-        if (yaw_diff > tolerance)
-            chassis->rotateInPlace(vel_set);
-        else if (yaw_diff < -tolerance)
-            chassis->rotateInPlace(-vel_set);
-        else
-        {
-            chassis->stop(1);
-            substate = MOVE_TO_TABLE;
-        }
 
+        if (chassis->rotateInPlacePosition(target_yaw, vel_set))
+            substate = MOVE_TO_TABLE;
         break;
     }
     case MOVE_TO_TABLE:
     {
         chassis->moveToTable(vel_set);
+
+        const float STOP_DIS = 0.2;
         float dist = sqrt(pow(data.table_x - data.robot_x, 2) + pow(data.table_y - data.robot_y, 2));
-        if (dist < 0.2)
+        if (dist < STOP_DIS)
             substate = STOP_AT_TABLE;
         break;
     }

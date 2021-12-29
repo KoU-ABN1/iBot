@@ -7,8 +7,23 @@ class Motor
 public:
     Motor(int t1) : handle(t1) {}
 
+    /**
+     * @brief Set the target velocity
+     * 
+     * @param velocity target velocity
+     * @param acceleration maximum acceleration (set to negetive to disable it)
+     */
     void setTargetVelocity(const float velocity, const float acceleration = ACC_DEFAULT);
 
+    /**
+     * @brief Set the target position
+     * 
+     * @param position target position
+     * @param upper_velocity upper velocity limit
+     * @param kp pid parameter kp
+     * @param ki pid parameter ki
+     * @param kd pid parameter kd
+     */
     void setTargetPosition(const float position,
                            const float upper_velocity = UPPER_VELOCITY_DEFAULT,
                            const float kp = KP_DEFAULT,

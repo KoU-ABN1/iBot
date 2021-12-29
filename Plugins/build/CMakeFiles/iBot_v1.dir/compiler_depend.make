@@ -438,10 +438,10 @@ CMakeFiles/iBot_v1.dir/actions.cpp.o: ../actions.cpp \
   /home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/include/simLib.h \
   /home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/include/simConst.h \
   /home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/include/simTypes.h \
-  ../differential_chassis.h \
+  ../chassis.h \
   ../motor.h \
-  ../three_part_body.h \
-  ../two_dof_arm.h
+  ../body.h \
+  ../arm.h
 
 CMakeFiles/iBot_v1.dir/arm.cpp.o: ../arm.cpp \
   /usr/include/stdc-predef.h \
@@ -4034,15 +4034,13 @@ CMakeFiles/iBot_v1.dir/sim_main.cpp.o: ../sim_main.cpp \
 
 ../coppeliasim_interface.cpp:
 
-../chassis.h:
-
-../body.h:
-
 ../body.cpp:
 
 ../arm.h:
 
-../differential_chassis.h:
+../body.h:
+
+../chassis.h:
 
 /home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/include/simConst.h:
 
@@ -4171,8 +4169,6 @@ CMakeFiles/iBot_v1.dir/sim_main.cpp.o: ../sim_main.cpp \
 /usr/include/Eigen/src/Core/products/GeneralMatrixMatrix.h:
 
 /usr/include/Eigen/src/Core/Transpose.h:
-
-../two_dof_arm.h:
 
 /usr/include/Eigen/src/Core/Ref.h:
 
@@ -4921,8 +4917,6 @@ CMakeFiles/iBot_v1.dir/sim_main.cpp.o: ../sim_main.cpp \
 /usr/include/string.h:
 
 /usr/include/strings.h:
-
-../three_part_body.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/7/include-fixed/syslimits.h:
 

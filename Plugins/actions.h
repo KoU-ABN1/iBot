@@ -16,6 +16,12 @@ enum Actions
     BACK_TO_DOOR,
 };
 
+enum Substate_MoveToCustomer
+{
+    GET_CLOSE_TO_CUSTOMER,
+    ADJUST_POSTURE,
+};
+
 enum Substate_TakeCustomerToTable
 {
     FACE_TO_DOOR,
@@ -35,6 +41,9 @@ public:
     int backToDoor();
 
 private:
+    const float TRACK_WIDTH = 0.54;
+    const float WHEEL_DIAMETER = 0.3;
+
     std::unique_ptr<Chassis> chassis = std::make_unique<Chassis>(Chassis());
     std::unique_ptr<Body> body = std::make_unique<Body>(Body());
     std::unique_ptr<Arm> left_arm = std::make_unique<Arm>(Arm());

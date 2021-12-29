@@ -22,8 +22,6 @@ void mainSimulation()
         state = robot.moveToCustomer();
         break;
     }
-        state = robot.moveToCustomer();
-        break;
 
     case INTERACT_WITH_CUSTOMER_AT_DOOR:
     {
