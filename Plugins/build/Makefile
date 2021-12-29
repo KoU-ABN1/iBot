@@ -198,6 +198,78 @@ actions.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/actions.cpp.s
 .PHONY : actions.cpp.s
 
+arm.o: arm.cpp.o
+.PHONY : arm.o
+
+# target to build an object file
+arm.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/arm.cpp.o
+.PHONY : arm.cpp.o
+
+arm.i: arm.cpp.i
+.PHONY : arm.i
+
+# target to preprocess a source file
+arm.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/arm.cpp.i
+.PHONY : arm.cpp.i
+
+arm.s: arm.cpp.s
+.PHONY : arm.s
+
+# target to generate assembly for a file
+arm.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/arm.cpp.s
+.PHONY : arm.cpp.s
+
+body.o: body.cpp.o
+.PHONY : body.o
+
+# target to build an object file
+body.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/body.cpp.o
+.PHONY : body.cpp.o
+
+body.i: body.cpp.i
+.PHONY : body.i
+
+# target to preprocess a source file
+body.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/body.cpp.i
+.PHONY : body.cpp.i
+
+body.s: body.cpp.s
+.PHONY : body.s
+
+# target to generate assembly for a file
+body.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/body.cpp.s
+.PHONY : body.cpp.s
+
+chassis.o: chassis.cpp.o
+.PHONY : chassis.o
+
+# target to build an object file
+chassis.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/chassis.cpp.o
+.PHONY : chassis.cpp.o
+
+chassis.i: chassis.cpp.i
+.PHONY : chassis.i
+
+# target to preprocess a source file
+chassis.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/chassis.cpp.i
+.PHONY : chassis.cpp.i
+
+chassis.s: chassis.cpp.s
+.PHONY : chassis.s
+
+# target to generate assembly for a file
+chassis.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/chassis.cpp.s
+.PHONY : chassis.cpp.s
+
 common.o: common.cpp.o
 .PHONY : common.o
 
@@ -245,30 +317,6 @@ coppeliasim_interface.s: coppeliasim_interface.cpp.s
 coppeliasim_interface.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/coppeliasim_interface.cpp.s
 .PHONY : coppeliasim_interface.cpp.s
-
-differential_chassis.o: differential_chassis.cpp.o
-.PHONY : differential_chassis.o
-
-# target to build an object file
-differential_chassis.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/differential_chassis.cpp.o
-.PHONY : differential_chassis.cpp.o
-
-differential_chassis.i: differential_chassis.cpp.i
-.PHONY : differential_chassis.i
-
-# target to preprocess a source file
-differential_chassis.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/differential_chassis.cpp.i
-.PHONY : differential_chassis.cpp.i
-
-differential_chassis.s: differential_chassis.cpp.s
-.PHONY : differential_chassis.s
-
-# target to generate assembly for a file
-differential_chassis.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/differential_chassis.cpp.s
-.PHONY : differential_chassis.cpp.s
 
 home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.o: home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.cpp.o
 .PHONY : home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.o
@@ -390,54 +438,6 @@ sim_main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/sim_main.cpp.s
 .PHONY : sim_main.cpp.s
 
-three_part_body.o: three_part_body.cpp.o
-.PHONY : three_part_body.o
-
-# target to build an object file
-three_part_body.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/three_part_body.cpp.o
-.PHONY : three_part_body.cpp.o
-
-three_part_body.i: three_part_body.cpp.i
-.PHONY : three_part_body.i
-
-# target to preprocess a source file
-three_part_body.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/three_part_body.cpp.i
-.PHONY : three_part_body.cpp.i
-
-three_part_body.s: three_part_body.cpp.s
-.PHONY : three_part_body.s
-
-# target to generate assembly for a file
-three_part_body.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/three_part_body.cpp.s
-.PHONY : three_part_body.cpp.s
-
-two_dof_arm.o: two_dof_arm.cpp.o
-.PHONY : two_dof_arm.o
-
-# target to build an object file
-two_dof_arm.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/two_dof_arm.cpp.o
-.PHONY : two_dof_arm.cpp.o
-
-two_dof_arm.i: two_dof_arm.cpp.i
-.PHONY : two_dof_arm.i
-
-# target to preprocess a source file
-two_dof_arm.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/two_dof_arm.cpp.i
-.PHONY : two_dof_arm.cpp.i
-
-two_dof_arm.s: two_dof_arm.cpp.s
-.PHONY : two_dof_arm.s
-
-# target to generate assembly for a file
-two_dof_arm.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/two_dof_arm.cpp.s
-.PHONY : two_dof_arm.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -454,15 +454,21 @@ help:
 	@echo "... actions.o"
 	@echo "... actions.i"
 	@echo "... actions.s"
+	@echo "... arm.o"
+	@echo "... arm.i"
+	@echo "... arm.s"
+	@echo "... body.o"
+	@echo "... body.i"
+	@echo "... body.s"
+	@echo "... chassis.o"
+	@echo "... chassis.i"
+	@echo "... chassis.s"
 	@echo "... common.o"
 	@echo "... common.i"
 	@echo "... common.s"
 	@echo "... coppeliasim_interface.o"
 	@echo "... coppeliasim_interface.i"
 	@echo "... coppeliasim_interface.s"
-	@echo "... differential_chassis.o"
-	@echo "... differential_chassis.i"
-	@echo "... differential_chassis.s"
 	@echo "... home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.o"
 	@echo "... home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.i"
 	@echo "... home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.s"
@@ -478,12 +484,6 @@ help:
 	@echo "... sim_main.o"
 	@echo "... sim_main.i"
 	@echo "... sim_main.s"
-	@echo "... three_part_body.o"
-	@echo "... three_part_body.i"
-	@echo "... three_part_body.s"
-	@echo "... two_dof_arm.o"
-	@echo "... two_dof_arm.i"
-	@echo "... two_dof_arm.s"
 .PHONY : help
 
 

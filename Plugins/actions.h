@@ -1,9 +1,9 @@
 #pragma once
 
 #include "common.h"
-#include "differential_chassis.h"
-#include "three_part_body.h"
-#include "two_dof_arm.h"
+#include "chassis.h"
+#include "body.h"
+#include "arm.h"
 
 enum Actions
 {
@@ -13,7 +13,14 @@ enum Actions
     GET_TABLE_NUMBER,
     TAKE_CUSTOMER_TO_TABLE,
     INTERACT_WITH_CUSTOMER_AT_TABLE,
-    BACK_TO_DOOR
+    BACK_TO_DOOR,
+};
+
+enum Substate_TakeCustomerToTable
+{
+    FACE_TO_DOOR,
+    MOVE_TO_TABLE,
+    STOP_AT_TABLE,
 };
 
 class Robot
@@ -28,8 +35,14 @@ public:
     int backToDoor();
 
 private:
-    std::unique_ptr<DifferentialChassis> chassis = std::make_unique<DifferentialChassis>(DifferentialChassis());
-    std::unique_ptr<ThreePartBody> body = std::make_unique<ThreePartBody>(ThreePartBody());
-    std::unique_ptr<TwoDofArm> left_arm = std::make_unique<TwoDofArm>(TwoDofArm());
-    std::unique_ptr<TwoDofArm> right_arm = std::make_unique<TwoDofArm>(TwoDofArm());
+    std::unique_ptr<Chassis> chassis = std::make_unique<Chassis>(Chassis());
+    std::unique_ptr<Body> body = std::make_unique<Body>(Body());
+    std::unique_ptr<Arm> left_arm = std::make_unique<Arm>(Arm());
+    std::unique_ptr<Arm> right_arm = std::make_unique<Arm>(Arm());
+
+    std::unique_ptr<Motor> left_wheel = std::make_unique<Motor>(Motor(handles.left_wheel));
+    std::unique_ptr<Motor> right_wheel = std::make_unique<Motor>(Motor(handles.right_wheel));
+    std::unique_ptr<Motor> waist_joint = std::make_unique<Motor>(Motor(handles.waist_joint));
+    std::unique_ptr<Motor> head_joint_1 = std::make_unique<Motor>(Motor(handles.head_joint_1));
+    std::unique_ptr<Motor> head_joint_2 = std::make_unique<Motor>(Motor(handles.head_joint_2));
 };

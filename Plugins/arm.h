@@ -3,7 +3,7 @@
 #include "common.h"
 #include "motor.h"
 
-class TwoDofArm
+class Arm
 {
 public:
     void pointToTarget(const Eigen::Vector3f &target);

@@ -34,8 +34,8 @@ void Motor::setTargetPosition(const float position, const float upper_velocity, 
 
     simSetObjectFloatParameter(handle, sim_jointfloatparam_upper_limit, upper_velocity);
     simSetObjectFloatParameter(handle, sim_jointfloatparam_pid_p, kp);
-    simSetObjectFloatParameter(handle, sim_jointfloatparam_pid_p, ki);
-    simSetObjectFloatParameter(handle, sim_jointfloatparam_pid_p, kd);
+    simSetObjectFloatParameter(handle, sim_jointfloatparam_pid_i, ki);
+    simSetObjectFloatParameter(handle, sim_jointfloatparam_pid_d, kd);
 
     simSetJointTargetPosition(handle, position);
 }

@@ -1,6 +1,6 @@
-#include "differential_chassis.h"
+#include "chassis.h"
 
-void DifferentialChassis::moveToTable(const float vel, const float acc)
+void Chassis::moveToTable(const float vel, const float acc)
 {
     std::vector<Eigen::Vector2f> nodes;
     nodes.push_back(Eigen::Vector2f(data.robot_x, data.robot_y));
@@ -24,7 +24,7 @@ void DifferentialChassis::moveToTable(const float vel, const float acc)
     moveToPointWithArc(waypoints[index], vel, 10);
 }
 
-std::vector<Eigen::Vector2f> DifferentialChassis::generateWaypoints(const std::vector<Eigen::Vector2f> &nodes)
+std::vector<Eigen::Vector2f> Chassis::generateWaypoints(const std::vector<Eigen::Vector2f> &nodes)
 {
     float bias = 0.5;
     std::vector<Eigen::Vector2f> ctr_points(3 * nodes.size() - 4);
@@ -76,7 +76,7 @@ std::vector<Eigen::Vector2f> DifferentialChassis::generateWaypoints(const std::v
     return way_points;
 }
 
-void DifferentialChassis::drawWaypoints(const std::vector<Eigen::Vector2f> &waypoints)
+void Chassis::drawWaypoints(const std::vector<Eigen::Vector2f> &waypoints)
 {
     static bool flag = true;
     if (flag)
@@ -90,7 +90,7 @@ void DifferentialChassis::drawWaypoints(const std::vector<Eigen::Vector2f> &wayp
     }
 }
 
-void DifferentialChassis::moveToCustomer(const float vel, const float acc)
+void Chassis::moveToCustomer(const float vel, const float acc)
 {
     float bias = 1;
     Eigen::Vector2f p1(data.robot_x, data.robot_y);
@@ -111,7 +111,7 @@ void DifferentialChassis::moveToCustomer(const float vel, const float acc)
     right_wheel->setTargetVelocity(v2, acc);
 }
 
-void DifferentialChassis::moveToPointWithArc(const Eigen::Vector2f &target, const float vel, const float acc)
+void Chassis::moveToPointWithArc(const Eigen::Vector2f &target, const float vel, const float acc)
 {
     float m = target[0] - data.robot_x;
     float n = target[1] - data.robot_y;
@@ -123,13 +123,13 @@ void DifferentialChassis::moveToPointWithArc(const Eigen::Vector2f &target, cons
     right_wheel->setTargetVelocity(v2, acc);
 }
 
-void DifferentialChassis::stop(const float acc)
+void Chassis::stop(const float acc)
 {
     left_wheel->setTargetVelocity(0, acc);
     right_wheel->setTargetVelocity(0, acc);
 }
 
-void DifferentialChassis::rotateInPlace(const float vel, const float acc)
+void Chassis::rotateInPlace(const float vel, const float acc)
 {
     left_wheel->setTargetVelocity(-vel, acc);
     right_wheel->setTargetVelocity(vel, acc);

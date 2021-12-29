@@ -368,7 +368,6 @@ CMakeFiles/iBot_v1.dir/sim_main.cpp.o: \
  /home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/include/simLib.h \
  /home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/include/simConst.h \
  /home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/include/simTypes.h \
- /home/hao/iBot/Plugins/actions.h \
- /home/hao/iBot/Plugins/differential_chassis.h \
- /home/hao/iBot/Plugins/motor.h /home/hao/iBot/Plugins/three_part_body.h \
- /home/hao/iBot/Plugins/two_dof_arm.h
+ /home/hao/iBot/Plugins/actions.h /home/hao/iBot/Plugins/chassis.h \
+ /home/hao/iBot/Plugins/motor.h /home/hao/iBot/Plugins/body.h \
+ /home/hao/iBot/Plugins/arm.h

@@ -26,10 +26,10 @@ coppeliasim_add_plugin(
     coppeliasim_interface.cpp
     sim_main.cpp
     common.cpp
-    differential_chassis.cpp
-    three_part_body.cpp
+    chassis.cpp
+    body.cpp
     motor.cpp
-    two_dof_arm.cpp
+    arm.cpp
     actions.cpp
     ${COPPELIASIM_COMMON_DIR}/scriptFunctionData.cpp
     ${COPPELIASIM_COMMON_DIR}/scriptFunctionDataItem.cpp

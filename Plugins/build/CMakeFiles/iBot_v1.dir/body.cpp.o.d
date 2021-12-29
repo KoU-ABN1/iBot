@@ -1,5 +1,5 @@
-CMakeFiles/iBot_v1.dir/actions.cpp.o: /home/hao/iBot/Plugins/actions.cpp \
- /usr/include/stdc-predef.h /home/hao/iBot/Plugins/actions.h \
+CMakeFiles/iBot_v1.dir/body.cpp.o: /home/hao/iBot/Plugins/body.cpp \
+ /usr/include/stdc-predef.h /home/hao/iBot/Plugins/body.h \
  /home/hao/iBot/Plugins/common.h /usr/include/c++/7/iostream \
  /usr/include/x86_64-linux-gnu/c++/7/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/7/bits/os_defines.h \
@@ -367,5 +367,4 @@ CMakeFiles/iBot_v1.dir/actions.cpp.o: /home/hao/iBot/Plugins/actions.cpp \
  /home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/include/simLib.h \
  /home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/include/simConst.h \
  /home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/include/simTypes.h \
- /home/hao/iBot/Plugins/chassis.h /home/hao/iBot/Plugins/motor.h \
- /home/hao/iBot/Plugins/body.h /home/hao/iBot/Plugins/arm.h
+ /home/hao/iBot/Plugins/motor.h

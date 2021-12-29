@@ -3,7 +3,7 @@
 #include "common.h"
 #include "motor.h"
 
-class ThreePartBody
+class Body
 {
 public:
     void trackCustomerFace();

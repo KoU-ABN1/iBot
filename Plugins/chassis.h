@@ -3,7 +3,7 @@
 #include "common.h"
 #include "motor.h"
 
-class DifferentialChassis
+class Chassis
 {
 public:
     void moveToCustomer(const float vel, const float acc = ACC_DEFAULT);

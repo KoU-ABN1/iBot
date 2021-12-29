@@ -1,6 +1,6 @@
-#include "three_part_body.h"
+#include "body.h"
 
-void ThreePartBody::trackCustomerFace()
+void Body::trackCustomerFace()
 {
     float kp = 5;
     float ki = 0.1;
@@ -47,7 +47,7 @@ void ThreePartBody::trackCustomerFace()
     head_joint_2->setTargetVelocity(-v2, -1);
 }
 
-inline float ThreePartBody::limitVelocity(float vel_set, float vel_max)
+inline float Body::limitVelocity(float vel_set, float vel_max)
 {
     if (vel_set > vel_max)
         vel_set = vel_max;

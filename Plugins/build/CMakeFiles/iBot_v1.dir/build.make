@@ -125,33 +125,33 @@ CMakeFiles/iBot_v1.dir/common.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/iBot_v1.dir/common.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hao/iBot/Plugins/common.cpp -o CMakeFiles/iBot_v1.dir/common.cpp.s
 
-CMakeFiles/iBot_v1.dir/differential_chassis.cpp.o: CMakeFiles/iBot_v1.dir/flags.make
-CMakeFiles/iBot_v1.dir/differential_chassis.cpp.o: ../differential_chassis.cpp
-CMakeFiles/iBot_v1.dir/differential_chassis.cpp.o: CMakeFiles/iBot_v1.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hao/iBot/Plugins/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/iBot_v1.dir/differential_chassis.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/iBot_v1.dir/differential_chassis.cpp.o -MF CMakeFiles/iBot_v1.dir/differential_chassis.cpp.o.d -o CMakeFiles/iBot_v1.dir/differential_chassis.cpp.o -c /home/hao/iBot/Plugins/differential_chassis.cpp
+CMakeFiles/iBot_v1.dir/chassis.cpp.o: CMakeFiles/iBot_v1.dir/flags.make
+CMakeFiles/iBot_v1.dir/chassis.cpp.o: ../chassis.cpp
+CMakeFiles/iBot_v1.dir/chassis.cpp.o: CMakeFiles/iBot_v1.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hao/iBot/Plugins/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/iBot_v1.dir/chassis.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/iBot_v1.dir/chassis.cpp.o -MF CMakeFiles/iBot_v1.dir/chassis.cpp.o.d -o CMakeFiles/iBot_v1.dir/chassis.cpp.o -c /home/hao/iBot/Plugins/chassis.cpp
 
-CMakeFiles/iBot_v1.dir/differential_chassis.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/iBot_v1.dir/differential_chassis.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hao/iBot/Plugins/differential_chassis.cpp > CMakeFiles/iBot_v1.dir/differential_chassis.cpp.i
+CMakeFiles/iBot_v1.dir/chassis.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/iBot_v1.dir/chassis.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hao/iBot/Plugins/chassis.cpp > CMakeFiles/iBot_v1.dir/chassis.cpp.i
 
-CMakeFiles/iBot_v1.dir/differential_chassis.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/iBot_v1.dir/differential_chassis.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hao/iBot/Plugins/differential_chassis.cpp -o CMakeFiles/iBot_v1.dir/differential_chassis.cpp.s
+CMakeFiles/iBot_v1.dir/chassis.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/iBot_v1.dir/chassis.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hao/iBot/Plugins/chassis.cpp -o CMakeFiles/iBot_v1.dir/chassis.cpp.s
 
-CMakeFiles/iBot_v1.dir/three_part_body.cpp.o: CMakeFiles/iBot_v1.dir/flags.make
-CMakeFiles/iBot_v1.dir/three_part_body.cpp.o: ../three_part_body.cpp
-CMakeFiles/iBot_v1.dir/three_part_body.cpp.o: CMakeFiles/iBot_v1.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hao/iBot/Plugins/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/iBot_v1.dir/three_part_body.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/iBot_v1.dir/three_part_body.cpp.o -MF CMakeFiles/iBot_v1.dir/three_part_body.cpp.o.d -o CMakeFiles/iBot_v1.dir/three_part_body.cpp.o -c /home/hao/iBot/Plugins/three_part_body.cpp
+CMakeFiles/iBot_v1.dir/body.cpp.o: CMakeFiles/iBot_v1.dir/flags.make
+CMakeFiles/iBot_v1.dir/body.cpp.o: ../body.cpp
+CMakeFiles/iBot_v1.dir/body.cpp.o: CMakeFiles/iBot_v1.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hao/iBot/Plugins/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/iBot_v1.dir/body.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/iBot_v1.dir/body.cpp.o -MF CMakeFiles/iBot_v1.dir/body.cpp.o.d -o CMakeFiles/iBot_v1.dir/body.cpp.o -c /home/hao/iBot/Plugins/body.cpp
 
-CMakeFiles/iBot_v1.dir/three_part_body.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/iBot_v1.dir/three_part_body.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hao/iBot/Plugins/three_part_body.cpp > CMakeFiles/iBot_v1.dir/three_part_body.cpp.i
+CMakeFiles/iBot_v1.dir/body.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/iBot_v1.dir/body.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hao/iBot/Plugins/body.cpp > CMakeFiles/iBot_v1.dir/body.cpp.i
 
-CMakeFiles/iBot_v1.dir/three_part_body.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/iBot_v1.dir/three_part_body.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hao/iBot/Plugins/three_part_body.cpp -o CMakeFiles/iBot_v1.dir/three_part_body.cpp.s
+CMakeFiles/iBot_v1.dir/body.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/iBot_v1.dir/body.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hao/iBot/Plugins/body.cpp -o CMakeFiles/iBot_v1.dir/body.cpp.s
 
 CMakeFiles/iBot_v1.dir/motor.cpp.o: CMakeFiles/iBot_v1.dir/flags.make
 CMakeFiles/iBot_v1.dir/motor.cpp.o: ../motor.cpp
@@ -167,19 +167,19 @@ CMakeFiles/iBot_v1.dir/motor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/iBot_v1.dir/motor.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hao/iBot/Plugins/motor.cpp -o CMakeFiles/iBot_v1.dir/motor.cpp.s
 
-CMakeFiles/iBot_v1.dir/two_dof_arm.cpp.o: CMakeFiles/iBot_v1.dir/flags.make
-CMakeFiles/iBot_v1.dir/two_dof_arm.cpp.o: ../two_dof_arm.cpp
-CMakeFiles/iBot_v1.dir/two_dof_arm.cpp.o: CMakeFiles/iBot_v1.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hao/iBot/Plugins/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/iBot_v1.dir/two_dof_arm.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/iBot_v1.dir/two_dof_arm.cpp.o -MF CMakeFiles/iBot_v1.dir/two_dof_arm.cpp.o.d -o CMakeFiles/iBot_v1.dir/two_dof_arm.cpp.o -c /home/hao/iBot/Plugins/two_dof_arm.cpp
+CMakeFiles/iBot_v1.dir/arm.cpp.o: CMakeFiles/iBot_v1.dir/flags.make
+CMakeFiles/iBot_v1.dir/arm.cpp.o: ../arm.cpp
+CMakeFiles/iBot_v1.dir/arm.cpp.o: CMakeFiles/iBot_v1.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hao/iBot/Plugins/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/iBot_v1.dir/arm.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/iBot_v1.dir/arm.cpp.o -MF CMakeFiles/iBot_v1.dir/arm.cpp.o.d -o CMakeFiles/iBot_v1.dir/arm.cpp.o -c /home/hao/iBot/Plugins/arm.cpp
 
-CMakeFiles/iBot_v1.dir/two_dof_arm.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/iBot_v1.dir/two_dof_arm.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hao/iBot/Plugins/two_dof_arm.cpp > CMakeFiles/iBot_v1.dir/two_dof_arm.cpp.i
+CMakeFiles/iBot_v1.dir/arm.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/iBot_v1.dir/arm.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hao/iBot/Plugins/arm.cpp > CMakeFiles/iBot_v1.dir/arm.cpp.i
 
-CMakeFiles/iBot_v1.dir/two_dof_arm.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/iBot_v1.dir/two_dof_arm.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hao/iBot/Plugins/two_dof_arm.cpp -o CMakeFiles/iBot_v1.dir/two_dof_arm.cpp.s
+CMakeFiles/iBot_v1.dir/arm.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/iBot_v1.dir/arm.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hao/iBot/Plugins/arm.cpp -o CMakeFiles/iBot_v1.dir/arm.cpp.s
 
 CMakeFiles/iBot_v1.dir/actions.cpp.o: CMakeFiles/iBot_v1.dir/flags.make
 CMakeFiles/iBot_v1.dir/actions.cpp.o: ../actions.cpp
@@ -229,10 +229,10 @@ iBot_v1_OBJECTS = \
 "CMakeFiles/iBot_v1.dir/coppeliasim_interface.cpp.o" \
 "CMakeFiles/iBot_v1.dir/sim_main.cpp.o" \
 "CMakeFiles/iBot_v1.dir/common.cpp.o" \
-"CMakeFiles/iBot_v1.dir/differential_chassis.cpp.o" \
-"CMakeFiles/iBot_v1.dir/three_part_body.cpp.o" \
+"CMakeFiles/iBot_v1.dir/chassis.cpp.o" \
+"CMakeFiles/iBot_v1.dir/body.cpp.o" \
 "CMakeFiles/iBot_v1.dir/motor.cpp.o" \
-"CMakeFiles/iBot_v1.dir/two_dof_arm.cpp.o" \
+"CMakeFiles/iBot_v1.dir/arm.cpp.o" \
 "CMakeFiles/iBot_v1.dir/actions.cpp.o" \
 "CMakeFiles/iBot_v1.dir/home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.cpp.o" \
 "CMakeFiles/iBot_v1.dir/home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.cpp.o"
@@ -244,10 +244,10 @@ libiBot_v1.so: CMakeFiles/iBot_v1.dir/home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_0
 libiBot_v1.so: CMakeFiles/iBot_v1.dir/coppeliasim_interface.cpp.o
 libiBot_v1.so: CMakeFiles/iBot_v1.dir/sim_main.cpp.o
 libiBot_v1.so: CMakeFiles/iBot_v1.dir/common.cpp.o
-libiBot_v1.so: CMakeFiles/iBot_v1.dir/differential_chassis.cpp.o
-libiBot_v1.so: CMakeFiles/iBot_v1.dir/three_part_body.cpp.o
+libiBot_v1.so: CMakeFiles/iBot_v1.dir/chassis.cpp.o
+libiBot_v1.so: CMakeFiles/iBot_v1.dir/body.cpp.o
 libiBot_v1.so: CMakeFiles/iBot_v1.dir/motor.cpp.o
-libiBot_v1.so: CMakeFiles/iBot_v1.dir/two_dof_arm.cpp.o
+libiBot_v1.so: CMakeFiles/iBot_v1.dir/arm.cpp.o
 libiBot_v1.so: CMakeFiles/iBot_v1.dir/actions.cpp.o
 libiBot_v1.so: CMakeFiles/iBot_v1.dir/home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.cpp.o
 libiBot_v1.so: CMakeFiles/iBot_v1.dir/home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.cpp.o

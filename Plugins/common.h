@@ -72,6 +72,9 @@ struct SimInfo
 
     float door_x = 4;
     float door_y = 0;
+
+    float table_x = 1.5;
+    float table_y = -6;
 };
 
 extern SimHandles handles;

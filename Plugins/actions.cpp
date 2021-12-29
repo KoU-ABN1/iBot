@@ -80,9 +80,7 @@ int Robot::interactWithCustomerAtDoor()
 
 int Robot::getTableNumber()
 {
-    simSetObjectInt32Parameter(handles.head_joint_2, sim_jointintparam_ctrl_enabled, 1); // enable postion control
-    simSetObjectFloatParameter(handles.head_joint_2, sim_jointfloatparam_upper_limit, 1);
-    simSetJointTargetPosition(handles.head_joint_2, 0);
+    head_joint_2->setTargetPosition(0, 0.5);
 
     data.table_number = 7;
 
@@ -91,39 +89,38 @@ int Robot::getTableNumber()
 
 int Robot::takeCustomerToTable()
 {
-    static int substate = 0;
+    static int substate = FACE_TO_DOOR;
+    float vel_set = 3;
 
     switch (substate)
     {
-    case 0:
+    case FACE_TO_DOOR:
     {
         float tolerance = 0.1;
         float target_yaw = atan2(data.door_y - data.robot_y, data.door_x - data.robot_x);
         float yaw_diff = rectifyAngle(target_yaw - data.robot_yaw);
-        std::cout << target_yaw << std::endl;
         if (yaw_diff > tolerance)
-            chassis->rotateInPlace(3);
+            chassis->rotateInPlace(vel_set);
         else if (yaw_diff < -tolerance)
-            chassis->rotateInPlace(-3);
+            chassis->rotateInPlace(-vel_set);
         else
         {
             chassis->stop(1);
-            substate = 1;
+            substate = MOVE_TO_TABLE;
         }
 
         break;
     }
-    case 1:
+    case MOVE_TO_TABLE:
     {
-        chassis->moveToTable(3);
-        Eigen::Vector2f target(1.5, -6);
-        float dist = sqrt(pow(target[0] - data.robot_x, 2) + pow(target[1] - data.robot_y, 2));
+        chassis->moveToTable(vel_set);
+        float dist = sqrt(pow(data.table_x - data.robot_x, 2) + pow(data.table_y - data.robot_y, 2));
         if (dist < 0.2)
-            substate = 1;
+            substate = STOP_AT_TABLE;
         break;
     }
 
-    case 2:
+    case STOP_AT_TABLE:
     {
         chassis->stop(1);
         break;
