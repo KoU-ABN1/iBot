@@ -75,7 +75,7 @@ int Robot::interactWithCustomerAtDoor()
     // simSetJointTargetPosition(handles.left_arm_joint_1, theta1);
     // simSetJointTargetPosition(handles.left_arm_joint_2, theta2);
 
-    WAIT(1, GET_TABLE_NUMBER);
+    WAIT(5, GET_TABLE_NUMBER);
 
     return INTERACT_WITH_CUSTOMER_AT_DOOR;
 }
@@ -104,6 +104,7 @@ int Robot::takeCustomerToTable()
             substate = MOVE_TO_TABLE;
         break;
     }
+
     case MOVE_TO_TABLE:
     {
         chassis->moveToTable(vel_set);
@@ -111,13 +112,17 @@ int Robot::takeCustomerToTable()
         const float STOP_DIS = 0.2;
         float dist = sqrt(pow(data.table_x - data.robot_x, 2) + pow(data.table_y - data.robot_y, 2));
         if (dist < STOP_DIS)
-            substate = STOP_AT_TABLE;
+            substate = FACE_TO_CUSTOMER;
         break;
     }
 
-    case STOP_AT_TABLE:
+    case FACE_TO_CUSTOMER:
     {
-        chassis->stop(1);
+        float vel_set = 2;
+
+        float target_yaw = atan2(data.customer_y - data.robot_y, data.customer_x - data.robot_x);
+        if (chassis->rotateInPlacePosition(target_yaw, vel_set))
+            return INTERACT_WITH_CUSTOMER_AT_DOOR;
         break;
     }
     }

@@ -26,7 +26,7 @@ enum Substate_TakeCustomerToTable
 {
     FACE_TO_DOOR,
     MOVE_TO_TABLE,
-    STOP_AT_TABLE,
+    FACE_TO_CUSTOMER,
 };
 
 class Robot
