@@ -59,51 +59,5 @@ int main()
         cout << endl;
     }
 
-    // vector<pair<float, float>> result;
-
-    // float theta2 = atan2(-n, p);
-    // float theta1 = atan2(m * sin(theta2), -n);
-    // result.push_back(make_pair(theta1, theta2));
-
-    // if (theta1 < 0)
-    //     result.push_back(make_pair(theta1 + PI, theta2));
-    // else
-    //     result.push_back(make_pair(theta1 - PI, theta2));
-
-    // if (theta2 < 0)
-    // {
-    //     theta2 += PI;
-    //     theta1 = atan2(m * sin(theta2), -n);
-    //     result.push_back(make_pair(theta1, theta2));
-
-    //     if (theta1 < 0)
-    //         result.push_back(make_pair(theta1 + PI, theta2));
-    //     else
-    //         result.push_back(make_pair(theta1 - PI, theta2));
-    // }
-    // else
-    // {
-    //     theta2 -= PI;
-    //     theta1 = atan2(m * sin(theta2), -n);
-    //     result.push_back(make_pair(theta1, theta2));
-
-    //     if (theta1 < 0)
-    //         result.push_back(make_pair(theta1 + PI, theta2));
-    //     else
-    //         result.push_back(make_pair(theta1 - PI, theta2));
-    // }
-
-    // for (int i = 0; i < result.size(); i++)
-    // {
-    //     cout << result[i].first * DEG << "    " << result[i].second * DEG << endl;
-    //     float r = -sin(result[i].first);
-    //     float s = sin(result[i].second) * cos(result[i].first);
-    //     float t = -cos(result[i].second) * cos(result[i].first);
-    //     cout << r << endl;
-    //     cout << s << endl;
-    //     cout << t << endl;
-    //     cout << endl;
-    // }
-
     return 0;
 }

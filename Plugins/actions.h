@@ -46,8 +46,8 @@ private:
 
     std::unique_ptr<Chassis> chassis = std::make_unique<Chassis>(Chassis());
     std::unique_ptr<Body> body = std::make_unique<Body>(Body());
-    std::unique_ptr<Arm> left_arm = std::make_unique<Arm>(Arm());
-    std::unique_ptr<Arm> right_arm = std::make_unique<Arm>(Arm());
+    std::unique_ptr<Arm> left_arm = std::make_unique<Arm>(Arm("left_arm"));
+    std::unique_ptr<Arm> right_arm = std::make_unique<Arm>(Arm("right_arm"));
 
     std::unique_ptr<Motor> left_wheel = std::make_unique<Motor>(Motor(handles.left_wheel));
     std::unique_ptr<Motor> right_wheel = std::make_unique<Motor>(Motor(handles.right_wheel));

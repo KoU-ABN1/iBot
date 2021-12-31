@@ -2,7 +2,7 @@
 
 int Robot::waitAtDoor()
 {
-    const float WELCOME_DIS = 5;
+    const float WELCOME_DIS = 10;
     float dist = sqrt(pow(data.robot_x - data.customer_x, 2) + pow(data.robot_y - data.customer_y, 2));
 
     if (dist < WELCOME_DIS)
@@ -58,33 +58,9 @@ int Robot::moveToCustomer()
 
 int Robot::interactWithCustomerAtDoor()
 {
-    float pos[3]; // left_arm_base position
-    simGetObjectPosition(handles.right_arm_joint_1, -1, pos);
-    Eigen::Vector3f left_arm_base(pos[0], pos[1], pos[2]);
-    Eigen::Vector3f target_abs(5, 0, 0); // target position in the world coordinate system
 
-    Eigen::Vector3f target = target_abs - left_arm_base;
-
-    std::cout << target[0] << "   " << target[1] << "   " << target[2] << std::endl;
-
-    std::vector<std::vector<float>> theta = left_arm->inverseKinematics(target);
-
-    simSetObjectInt32Parameter(handles.left_arm_joint_1, sim_jointintparam_ctrl_enabled, 1); // enable postion control
-    simSetObjectInt32Parameter(handles.left_arm_joint_2, sim_jointintparam_ctrl_enabled, 1);
-
-    for (int i = 0; i < theta.size(); i++)
-    {
-        if (theta[i][1] < 0)
-        {
-            simSetJointTargetPosition(handles.left_arm_joint_1, theta[i][0]);
-            simSetJointTargetPosition(handles.left_arm_joint_2, -theta[i][1]);
-        }
-        Eigen::Vector3f result = left_arm->forwardKinematics(theta[i]);
-        std::cout << theta[i][0] << "       " << theta[i][1] << std::endl;
-        std::cout << result[0] << "      " << result[1] << "      " << result[2] << "      " << std::endl;
-    }
-
-    std::cout << std::endl;
+    Eigen::Vector3f target_abs(0, 0, 0);
+    left_arm->pointToTargetPosition(target_abs);
 
     WAIT(5, GET_TABLE_NUMBER);
 
@@ -135,7 +111,7 @@ int Robot::takeCustomerToTable()
 
         float target_yaw = atan2(data.customer_y - data.robot_y, data.customer_x - data.robot_x);
         if (chassis->rotateInPlacePosition(target_yaw, vel_set))
-            return INTERACT_WITH_CUSTOMER_AT_DOOR;
+            return INTERACT_WITH_CUSTOMER_AT_TABLE;
         break;
     }
     }

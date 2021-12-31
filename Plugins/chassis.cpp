@@ -101,6 +101,20 @@ void Chassis::moveToCustomer(const float vel, const float acc)
     float t = 0.1;
     Eigen::Vector2f target = p1 * (1 - t) * (1 - t) * (1 - t) + p2 * 3 * (1 - t) * (1 - t) * t + p3 * 3 * (1 - t) * t * t + p4 * t * t * t;
 
+    static int k = 0;
+    if (k % 30 == 0)
+    {
+        float t = 0;
+        for (int i = 0; i < 200; i++)
+        {
+            Eigen::Vector2f target = p1 * (1 - t) * (1 - t) * (1 - t) + p2 * 3 * (1 - t) * (1 - t) * t + p3 * 3 * (1 - t) * t * t + p4 * t * t * t;
+            float point[3] = {target[0], target[1], 0};
+            simAddDrawingObjectItem(handles.drawer, point);
+            t += 1.0 / 200;
+        }
+    }
+    k++;
+
     float m = target[0] - data.robot_x;
     float n = target[1] - data.robot_y;
     float r = (m * m + n * n) / (2 * m * sin(data.robot_yaw) - 2 * n * cos(data.robot_yaw));
