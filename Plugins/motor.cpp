@@ -28,8 +28,15 @@ void Motor::setTargetVelocity(const float velocity, const float acceleration)
     }
 }
 
-void Motor::setTargetPosition(const float position, const float upper_velocity, const float kp, const float ki, const float kd)
+bool Motor::setTargetPosition(const float position, const float upper_velocity, const float kp, const float ki, const float kd)
 {
+    float position_cur;
+    simGetJointPosition(handle, &position_cur);
+
+    float tolerance = 5 / 180.0 * PI;
+    if (abs(position_cur - position) < tolerance)
+        return true;
+
     simSetObjectInt32Parameter(handle, sim_jointintparam_ctrl_enabled, 1); // enable position control mode
 
     simSetObjectFloatParameter(handle, sim_jointfloatparam_upper_limit, upper_velocity);
@@ -38,4 +45,18 @@ void Motor::setTargetPosition(const float position, const float upper_velocity, 
     simSetObjectFloatParameter(handle, sim_jointfloatparam_pid_d, kd);
 
     simSetJointTargetPosition(handle, position);
+
+    return false;
 }
+
+// void Motor::setTargetPosition(const float position, const float upper_velocity, const float kp, const float ki, const float kd)
+// {
+//     simSetObjectInt32Parameter(handle, sim_jointintparam_ctrl_enabled, 1); // enable position control mode
+
+//     simSetObjectFloatParameter(handle, sim_jointfloatparam_upper_limit, upper_velocity);
+//     simSetObjectFloatParameter(handle, sim_jointfloatparam_pid_p, kp);
+//     simSetObjectFloatParameter(handle, sim_jointfloatparam_pid_i, ki);
+//     simSetObjectFloatParameter(handle, sim_jointfloatparam_pid_d, kd);
+
+//     simSetJointTargetPosition(handle, position);
+// }

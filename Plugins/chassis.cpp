@@ -1,14 +1,7 @@
 #include "chassis.h"
 
-void Chassis::moveToTable(const float vel, const float acc)
+void Chassis::moveToTable(const std::vector<Eigen::Vector2f> &nodes, const float vel, const float acc)
 {
-    std::vector<Eigen::Vector2f> nodes;
-    nodes.push_back(Eigen::Vector2f(data.robot_x, data.robot_y));
-    nodes.push_back(Eigen::Vector2f(4, 0));
-    nodes.push_back(Eigen::Vector2f(4, -1));
-    nodes.push_back(Eigen::Vector2f(1.5, -1));
-    nodes.push_back(Eigen::Vector2f(1.5, -6));
-
     std::vector<Eigen::Vector2f> waypoints = generateWaypoints(nodes);
     drawWaypoints(waypoints);
 
@@ -22,6 +15,23 @@ void Chassis::moveToTable(const float vel, const float acc)
     }
 
     moveToPointWithArc(waypoints[index], vel, 10);
+}
+
+void Chassis::moveToDoor(const std::vector<Eigen::Vector2f> &nodes, const float vel, const float acc)
+{
+    std::vector<Eigen::Vector2f> waypoints = generateWaypoints(nodes);
+    drawWaypoints(waypoints);
+
+    float track_dis = 0.2;
+    static int inde = 0;
+    float dist = sqrt(pow(waypoints[inde][0] - data.robot_x, 2) + pow(waypoints[inde][1] - data.robot_y, 2));
+    while (dist < track_dis && inde < waypoints.size())
+    {
+        inde++;
+        dist = sqrt(pow(waypoints[inde][0] - data.robot_x, 2) + pow(waypoints[inde][1] - data.robot_y, 2));
+    }
+
+    moveToPointWithArc(waypoints[inde], vel, 10);
 }
 
 std::vector<Eigen::Vector2f> Chassis::generateWaypoints(const std::vector<Eigen::Vector2f> &nodes)

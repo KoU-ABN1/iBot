@@ -20,7 +20,9 @@ public:
      * @param vel Target velocity
      * @param acc Maximum acceleration (set to negative to disable it)
      */
-    void moveToTable(const float vel, const float acc = ACC_DEFAULT);
+    void moveToTable(const std::vector<Eigen::Vector2f> &nodes, const float vel, const float acc = ACC_DEFAULT);
+
+    void moveToDoor(const std::vector<Eigen::Vector2f> &nodes, const float vel, const float acc = ACC_DEFAULT);
 
     /**
      * @brief Control the chassis to move to a point in x-y plane with a circle path

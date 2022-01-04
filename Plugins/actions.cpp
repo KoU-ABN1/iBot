@@ -58,11 +58,15 @@ int Robot::moveToCustomer()
 
 int Robot::interactWithCustomerAtDoor()
 {
+    // static bool flag = true;
+    // if (flag)
+    // {
+    //     Eigen::Vector3f target_abs(0, 0, 0);
+    //     left_arm->pointToTargetPosition(target_abs);
+    //     flag = false;
+    // }
 
-    Eigen::Vector3f target_abs(0, 0, 0);
-    left_arm->pointToTargetPosition(target_abs);
-
-    WAIT(5, GET_TABLE_NUMBER);
+    WAIT(2, GET_TABLE_NUMBER);
 
     return INTERACT_WITH_CUSTOMER_AT_DOOR;
 }
@@ -97,7 +101,14 @@ int Robot::takeCustomerToTable()
         float vel_set = 3;
         const float STOP_DIS = 0.2;
 
-        chassis->moveToTable(vel_set);
+        std::vector<Eigen::Vector2f> nodes;
+        nodes.push_back(Eigen::Vector2f(data.robot_x, data.robot_y));
+        nodes.push_back(Eigen::Vector2f(4, 0));
+        nodes.push_back(Eigen::Vector2f(4, -1));
+        nodes.push_back(Eigen::Vector2f(1.5, -1));
+        nodes.push_back(Eigen::Vector2f(1.5, -6));
+
+        chassis->moveToTable(nodes, vel_set);
 
         float dist = sqrt(pow(data.table_x - data.robot_x, 2) + pow(data.table_y - data.robot_y, 2));
         if (dist < STOP_DIS)
@@ -109,9 +120,9 @@ int Robot::takeCustomerToTable()
     {
         float vel_set = 2;
 
-        float target_yaw = atan2(data.customer_y - data.robot_y, data.customer_x - data.robot_x);
-        if (chassis->rotateInPlacePosition(target_yaw, vel_set))
+        if (chassis->rotateInPlacePosition(3.14 / 2, vel_set))
             return INTERACT_WITH_CUSTOMER_AT_TABLE;
+
         break;
     }
     }
@@ -127,6 +138,23 @@ int Robot::interactWithCustomerAtTable()
 
 int Robot::backToDoor()
 {
+    std::cout << " dddd" << std::endl;
+    std::vector<Eigen::Vector2f> nodes;
+    nodes.push_back(Eigen::Vector2f(data.robot_x, data.robot_y));
+    nodes.push_back(Eigen::Vector2f(1.5, -1));
+    nodes.push_back(Eigen::Vector2f(4, -1));
+    nodes.push_back(Eigen::Vector2f(4, 0));
+    nodes.push_back(Eigen::Vector2f(3, 1));
 
-    return WAIT_AT_DOOR;
+    chassis->moveToDoor(nodes, 3);
+
+    const float STOP_DIS = 0.2;
+    float dist = sqrt(pow(3 - data.robot_x, 2) + pow(1 - data.robot_y, 2));
+    if (dist < STOP_DIS)
+    {
+        chassis->stop();
+        return WAIT_AT_DOOR;
+    }
+
+    return BACK_TO_DOOR;
 }

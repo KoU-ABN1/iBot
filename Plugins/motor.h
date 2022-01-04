@@ -1,11 +1,20 @@
 #pragma once
 
 #include "common.h"
+//#include "base.h"
 
-class Motor
+class Base
+{
+public:
+    void doSomething1();
+};
+
+class Motor : public Base
 {
 public:
     Motor(int t1) : handle(t1) {}
+
+    void doSomething();
 
     /**
      * @brief Set the target velocity
@@ -24,7 +33,7 @@ public:
      * @param ki PID parameter ki
      * @param kd PID parameter kd
      */
-    void setTargetPosition(const float position,
+    bool setTargetPosition(const float position,
                            const float upper_velocity = UPPER_VELOCITY_DEFAULT,
                            const float kp = KP_DEFAULT,
                            const float ki = KI_DEFAULT,
