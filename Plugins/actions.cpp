@@ -58,26 +58,104 @@ int Robot::moveToCustomer()
 
 int Robot::interactWithCustomerAtDoor()
 {
-    // static bool flag = true;
-    // if (flag)
+    // //门的位置
+    // Eigen::Vector3f target(4, 0, 1);
+
+    // //机器人平面内转向门店所需的角度
+    // float target_yaw = atan2(target[1] - data.robot_y, target[0] - data.robot_x);
+    // float scale = 0.5; //转向所需角度的1/2
+    // float waist_yaw = data.robot_yaw + data.waist_joint_position;
+    // static float yaw_diff = rectifyAngle(target_yaw - waist_yaw) * scale;
+
+    // static int substate = TURN_WAIST_TO_DOOR;
+    // static int times = 0;
+    // static int hands_time = 0;
+
+    // float face_target_yaw = atan2(data.customer_y - data.robot_y, data.customer_x - data.robot_x);
+    // head_joint_1->setTargetPosition(data.waist_joint_position, 2);
+
+    // head_joint_2->setTargetPosition(-30 / 180.0 * PI, 1);
+
+    // switch (substate)
     // {
-    //     Eigen::Vector3f target_abs(0, 0, 0);
-    //     left_arm->pointToTargetPosition(target_abs);
-    //     flag = false;
+    // case TURN_WAIST_TO_DOOR:
+    // {
+    //     if (waist_joint->setTargetPosition(yaw_diff, 1))
+    //     {
+    //         substate = HANDS_UP;
+    //         break;
+    //     }
+    //     break;
+    // }
+    // case HANDS_UP:
+    // {
+    //     static bool flag = true;
+
+    //     if ((rectifyAngle(target_yaw) - rectifyAngle(waist_yaw)) > 0)
+    //     {
+    //         hands_time++;
+    //         if (flag)
+    //         {
+    //             left_arm->pointToTargetPosition(target, 3);
+    //             times++;
+    //             flag = false;
+    //         }
+    //     }
+    //     if (hands_time == 300)
+    //     {
+    //         substate = HANDES_DOWN;
+    //         flag = true;
+    //     }
+
+    //     break;
+    // }
+    // case HANDES_DOWN:
+    // {
+    //     if (times == 3)
+    //     {
+    //         return GET_TABLE_NUMBER;
+    //     }
+
+    //     hands_time--;
+    //     if (hands_time == 0)
+    //     {
+    //         substate = HANDS_UP;
+    //     }
+
+    //     left_arm_joint_1->setTargetPosition(0, 3);
+    //     left_arm_joint_2->setTargetPosition(0, 3);
+
+    //     break;
     // }
 
-    WAIT(2, GET_TABLE_NUMBER);
+    // default:
+    //     break;
+    // }
+
+    WAIT(1, GET_TABLE_NUMBER);
 
     return INTERACT_WITH_CUSTOMER_AT_DOOR;
 }
 
 int Robot::getTableNumber()
 {
-    head_joint_2->setTargetPosition(0, 0.5);
+    static float getTableNumberTime = 0;
+    Eigen::Vector3f arm_reset(0, 0, -1);
+
+    waist_joint->setTargetPosition(0, 1);
+    head_joint_2->setTargetPosition(0, 1);
+    head_joint_1->setTargetPosition(0, 1);
+
+    left_arm_joint_1->setTargetPosition(0, 1);
+    left_arm_joint_2->setTargetPosition(0, 1);
 
     data.table_number = 7;
-
-    return TAKE_CUSTOMER_TO_TABLE;
+    getTableNumberTime++;
+    if (getTableNumberTime = 1000)
+    {
+        return TAKE_CUSTOMER_TO_TABLE;
+    }
+    return GET_TABLE_NUMBER;
 }
 
 int Robot::takeCustomerToTable()
@@ -138,7 +216,7 @@ int Robot::interactWithCustomerAtTable()
 
 int Robot::backToDoor()
 {
-    std::cout << " dddd" << std::endl;
+
     std::vector<Eigen::Vector2f> nodes;
     nodes.push_back(Eigen::Vector2f(data.robot_x, data.robot_y));
     nodes.push_back(Eigen::Vector2f(1.5, -1));

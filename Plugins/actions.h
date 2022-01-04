@@ -29,6 +29,13 @@ enum Substate_TakeCustomerToTable
     FACE_TO_CUSTOMER,
 };
 
+enum InteractionAtDoorSubstate
+{
+    TURN_WAIST_TO_DOOR,
+    HANDS_UP,
+    HANDES_DOWN,
+};
+
 class Robot
 {
 public:
