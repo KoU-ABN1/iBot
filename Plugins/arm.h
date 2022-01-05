@@ -24,7 +24,7 @@ public:
      */
     std::vector<std::vector<float>> inverseKinematics(const Eigen::Vector3f &target);
 
-    void pointToTargetPosition(const Eigen::Vector3f &target_abs, const float &velocity = 1);
+    bool pointToTargetPosition(const Eigen::Vector3f &target_abs, const float &velocity = 1);
 
 private:
     const float ARM_LENGTH = 0.3;

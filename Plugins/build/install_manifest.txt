@@ -1,1 +1,0 @@
-/home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/libiBot_v1.so

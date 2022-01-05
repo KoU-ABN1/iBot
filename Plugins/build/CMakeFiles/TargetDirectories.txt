@@ -1,7 +1,0 @@
-/home/hao/iBot/Plugins/build/CMakeFiles/iBot_v1.dir
-/home/hao/iBot/Plugins/build/CMakeFiles/edit_cache.dir
-/home/hao/iBot/Plugins/build/CMakeFiles/rebuild_cache.dir
-/home/hao/iBot/Plugins/build/CMakeFiles/list_install_components.dir
-/home/hao/iBot/Plugins/build/CMakeFiles/install.dir
-/home/hao/iBot/Plugins/build/CMakeFiles/install/local.dir
-/home/hao/iBot/Plugins/build/CMakeFiles/install/strip.dir
