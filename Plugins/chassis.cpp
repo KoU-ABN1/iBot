@@ -112,6 +112,7 @@ void Chassis::moveToCustomer(const float vel, const float acc)
     Eigen::Vector2f target = p1 * (1 - t) * (1 - t) * (1 - t) + p2 * 3 * (1 - t) * (1 - t) * t + p3 * 3 * (1 - t) * t * t + p4 * t * t * t;
 
     static int k = 0;
+
     if (k % 30 == 0)
     {
         float t = 0;
