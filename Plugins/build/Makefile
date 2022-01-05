@@ -48,27 +48,27 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/xiayu/.local/lib/python2.7/site-packages/cmake/data/bin/cmake
+CMAKE_COMMAND = /snap/cmake/1000/bin/cmake
 
 # The command to remove a file.
-RM = /home/xiayu/.local/lib/python2.7/site-packages/cmake/data/bin/cmake -E rm -f
+RM = /snap/cmake/1000/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/xiayu/iBotV3/iBot/Plugins
+CMAKE_SOURCE_DIR = /home/hao/iBot/Plugins
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/xiayu/iBotV3/iBot/Plugins/build
+CMAKE_BINARY_DIR = /home/hao/iBot/Plugins/build
 
 #=============================================================================
 # Targets provided globally by CMake.
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/xiayu/.local/lib/python2.7/site-packages/cmake/data/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/snap/cmake/1000/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -78,7 +78,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/xiayu/.local/lib/python2.7/site-packages/cmake/data/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/snap/cmake/1000/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -97,44 +97,44 @@ list_install_components/fast: list_install_components
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/home/xiayu/.local/lib/python2.7/site-packages/cmake/data/bin/cmake -P cmake_install.cmake
+	/snap/cmake/1000/bin/cmake -P cmake_install.cmake
 .PHONY : install
 
 # Special rule for the target install
 install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/home/xiayu/.local/lib/python2.7/site-packages/cmake/data/bin/cmake -P cmake_install.cmake
+	/snap/cmake/1000/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/home/xiayu/.local/lib/python2.7/site-packages/cmake/data/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	/snap/cmake/1000/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local
 
 # Special rule for the target install/local
 install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/home/xiayu/.local/lib/python2.7/site-packages/cmake/data/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	/snap/cmake/1000/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/home/xiayu/.local/lib/python2.7/site-packages/cmake/data/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	/snap/cmake/1000/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip
 
 # Special rule for the target install/strip
 install/strip/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/home/xiayu/.local/lib/python2.7/site-packages/cmake/data/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	/snap/cmake/1000/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xiayu/iBotV3/iBot/Plugins/build/CMakeFiles /home/xiayu/iBotV3/iBot/Plugins/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/hao/iBot/Plugins/build/CMakeFiles /home/hao/iBot/Plugins/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xiayu/iBotV3/iBot/Plugins/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/hao/iBot/Plugins/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -318,77 +318,77 @@ coppeliasim_interface.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/coppeliasim_interface.cpp.s
 .PHONY : coppeliasim_interface.cpp.s
 
-home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.o: home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.cpp.o
-.PHONY : home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.o
+home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.o: home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.cpp.o
+.PHONY : home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.o
 
 # target to build an object file
-home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.cpp.o
-.PHONY : home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.cpp.o
+home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.cpp.o
+.PHONY : home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.cpp.o
 
-home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.i: home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.cpp.i
-.PHONY : home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.i
+home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.i: home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.cpp.i
+.PHONY : home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.i
 
 # target to preprocess a source file
-home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.cpp.i
-.PHONY : home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.cpp.i
+home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.cpp.i
+.PHONY : home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.cpp.i
 
-home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.s: home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.cpp.s
-.PHONY : home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.s
+home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.s: home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.cpp.s
+.PHONY : home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.s
 
 # target to generate assembly for a file
-home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.cpp.s
-.PHONY : home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.cpp.s
+home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.cpp.s
+.PHONY : home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.cpp.s
 
-home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.o: home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.cpp.o
-.PHONY : home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.o
+home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.o: home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.cpp.o
+.PHONY : home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.o
 
 # target to build an object file
-home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.cpp.o
-.PHONY : home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.cpp.o
+home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.cpp.o
+.PHONY : home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.cpp.o
 
-home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.i: home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.cpp.i
-.PHONY : home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.i
+home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.i: home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.cpp.i
+.PHONY : home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.i
 
 # target to preprocess a source file
-home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.cpp.i
-.PHONY : home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.cpp.i
+home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.cpp.i
+.PHONY : home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.cpp.i
 
-home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.s: home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.cpp.s
-.PHONY : home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.s
+home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.s: home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.cpp.s
+.PHONY : home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.s
 
 # target to generate assembly for a file
-home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.cpp.s
-.PHONY : home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.cpp.s
+home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.cpp.s
+.PHONY : home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.cpp.s
 
-home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.o: home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.cpp.o
-.PHONY : home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.o
+home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.o: home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.cpp.o
+.PHONY : home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.o
 
 # target to build an object file
-home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.cpp.o
-.PHONY : home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.cpp.o
+home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.cpp.o
+.PHONY : home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.cpp.o
 
-home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.i: home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.cpp.i
-.PHONY : home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.i
+home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.i: home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.cpp.i
+.PHONY : home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.i
 
 # target to preprocess a source file
-home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.cpp.i
-.PHONY : home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.cpp.i
+home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.cpp.i
+.PHONY : home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.cpp.i
 
-home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.s: home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.cpp.s
-.PHONY : home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.s
+home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.s: home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.cpp.s
+.PHONY : home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.s
 
 # target to generate assembly for a file
-home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.cpp.s
-.PHONY : home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.cpp.s
+home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/iBot_v1.dir/build.make CMakeFiles/iBot_v1.dir/home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.cpp.s
+.PHONY : home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.cpp.s
 
 motor.o: motor.cpp.o
 .PHONY : motor.o
@@ -469,15 +469,15 @@ help:
 	@echo "... coppeliasim_interface.o"
 	@echo "... coppeliasim_interface.i"
 	@echo "... coppeliasim_interface.s"
-	@echo "... home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.o"
-	@echo "... home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.i"
-	@echo "... home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.s"
-	@echo "... home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.o"
-	@echo "... home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.i"
-	@echo "... home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.s"
-	@echo "... home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.o"
-	@echo "... home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.i"
-	@echo "... home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.s"
+	@echo "... home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.o"
+	@echo "... home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.i"
+	@echo "... home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionData.s"
+	@echo "... home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.o"
+	@echo "... home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.i"
+	@echo "... home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/scriptFunctionDataItem.s"
+	@echo "... home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.o"
+	@echo "... home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.i"
+	@echo "... home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/common/simLib.s"
 	@echo "... motor.o"
 	@echo "... motor.i"
 	@echo "... motor.s"

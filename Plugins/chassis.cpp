@@ -94,7 +94,7 @@ void Chassis::drawWaypoints(const std::vector<Eigen::Vector2f> &waypoints)
         for (int i = 0; i < waypoints.size(); i++)
         {
             float point[3] = {waypoints[i][0], waypoints[i][1], 0};
-            //simAddDrawingObjectItem(handles.drawer, point);
+            simAddDrawingObjectItem(handles.drawer, point);
         }
         flag = false;
     }
@@ -119,7 +119,7 @@ void Chassis::moveToCustomer(const float vel, const float acc)
         {
             Eigen::Vector2f target = p1 * (1 - t) * (1 - t) * (1 - t) + p2 * 3 * (1 - t) * (1 - t) * t + p3 * 3 * (1 - t) * t * t + p4 * t * t * t;
             float point[3] = {target[0], target[1], 0};
-            //simAddDrawingObjectItem(handles.drawer, point);
+            simAddDrawingObjectItem(handles.drawer, point);
             t += 1.0 / 200;
         }
     }

@@ -1,20 +1,11 @@
 #pragma once
 
 #include "common.h"
-//#include "base.h"
 
-class Base
-{
-public:
-    void doSomething1();
-};
-
-class Motor : public Base
+class Motor
 {
 public:
     Motor(int t1) : handle(t1) {}
-
-    void doSomething();
 
     /**
      * @brief Set the target velocity

@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DLIN_SIM -DSIM_REQUIRED_PROGRAM_VERSION_NB=4020000 -DiBot_v1_EXPORTS
 
-CXX_INCLUDES = -I/home/xiayu/iBotV3/iBot/Plugins/build -I/home/xiayu/iBotV3/iBot/Plugins -I/home/xiayu/iBotV3/iBot/Plugins/include -I/home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/include -I/home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/libPlugin
+CXX_INCLUDES = -I/home/hao/iBot/Plugins/build -I/home/hao/iBot/Plugins -I/home/hao/iBot/Plugins/include -I/home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/include -I/home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/libPlugin
 
 CXX_FLAGS = -fPIC -std=gnu++1z
 

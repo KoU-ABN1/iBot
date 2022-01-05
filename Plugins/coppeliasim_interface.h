@@ -7,7 +7,7 @@
 #define SIM_DLLEXPORT extern "C"
 #endif /* __linux || __APPLE__ */
 
-#include "/home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/programming/include/scriptFunctionData.h"
+#include "scriptFunctionData.h"
 
 // The 3 required entry points of the plugin:
 SIM_DLLEXPORT unsigned char simStart(void *reservedPointer, int reservedInt);

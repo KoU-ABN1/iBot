@@ -1,4 +1,4 @@
-# Install script for directory: /home/xiayu/iBotV3/iBot/Plugins
+# Install script for directory: /home/hao/iBot/Plugins
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -43,25 +43,25 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  if(EXISTS "$ENV{DESTDIR}/home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/libiBot_v1.so" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/libiBot_v1.so")
+  if(EXISTS "$ENV{DESTDIR}/home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/libiBot_v1.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/libiBot_v1.so")
     file(RPATH_CHECK
-         FILE "$ENV{DESTDIR}/home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/libiBot_v1.so"
+         FILE "$ENV{DESTDIR}/home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/libiBot_v1.so"
          RPATH "")
   endif()
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/libiBot_v1.so")
+   "/home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/libiBot_v1.so")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04" TYPE SHARED_LIBRARY FILES "/home/xiayu/iBotV3/iBot/Plugins/build/libiBot_v1.so")
-  if(EXISTS "$ENV{DESTDIR}/home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/libiBot_v1.so" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/libiBot_v1.so")
+  file(INSTALL DESTINATION "/home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04" TYPE SHARED_LIBRARY FILES "/home/hao/iBot/Plugins/build/libiBot_v1.so")
+  if(EXISTS "$ENV{DESTDIR}/home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/libiBot_v1.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/libiBot_v1.so")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/xiayu/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/libiBot_v1.so")
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/hao/CoppeliaSim_Edu_V4_2_0_Ubuntu18_04/libiBot_v1.so")
     endif()
   endif()
 endif()
@@ -77,5 +77,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/xiayu/iBotV3/iBot/Plugins/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/hao/iBot/Plugins/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
