@@ -44,6 +44,10 @@ bool Arm::pointToTargetPosition(const Eigen::Vector3f &target_abs, const float &
         }
 
         float tolerance = 5 / 180.0 * PI;
+        // if (result_found && abs(theta1_cur - theta1) < tolerance && abs(theta2_cur - theta2) < tolerance)
+        // {
+        //     return true;
+        // }
     }
 
     else if (handle == "right_arm")
@@ -87,82 +91,6 @@ bool Arm::pointToTargetPosition(const Eigen::Vector3f &target_abs, const float &
 
     return false;
 }
-
-// bool Arm::pointToTargetPosition(Eigen::Vector3f target, const float upper_velocity)
-// {
-
-//     std::cout << "input pos " << target[0] << "   " << target[1] << "   " << target[2] << std::endl;
-//     std::vector<std::vector<float>> theta = inverseKinematics(target);
-//     if (name == "left_arm")
-//     {
-//         //std::cout << min_sum_theta << std::endl;
-//         float theta1_cur, theta2_cur;
-//         simGetJointPosition(handles.left_arm_joint_1, &theta1_cur);
-//         simGetJointPosition(handles.left_arm_joint_2, &theta2_cur);
-
-//         simSetObjectInt32Parameter(handles.left_arm_joint_1, sim_jointintparam_ctrl_enabled, 1); // enable postion control
-//         simSetObjectInt32Parameter(handles.left_arm_joint_2, sim_jointintparam_ctrl_enabled, 1);
-//         float min_value = 999;
-//         float target_theta[2];
-//         bool result_found = false;
-//         for (int i = 0; i < theta.size(); i++)
-//         {
-
-//             if (theta[i][1] < 0)
-//             {
-//                 float theta1_diff = rectifyAngle(theta[i][0] - theta1_cur);
-//                 float theta2_diff = rectifyAngle(theta[i][1] - theta2_cur);
-
-//                 if (abs(theta1_diff) + abs(theta2_diff) < min_value)
-//                 {
-//                     min_value = abs(theta1_diff) + abs(theta2_diff);
-//                     target_theta[0] = theta[i][0];
-//                     target_theta[1] = theta[i][1];
-//                     result_found = true;
-//                 }
-//             }
-//             Eigen::Vector3f result = forwardKinematics(theta[i]);
-//             std::cout << "theta " << theta[i][0] << "       " << theta[i][1] << std::endl;
-//             std::cout << "output pos " << result[0] << "      " << result[1] << "      " << result[2] << "      " << std::endl;
-//         }
-//         std::cout << "min_value " << min_value << std::endl;
-//         //std::cout << "target_theta " << abs(rectifyAngle(target_theta[0] - theta1_cur)) << "        " << abs(rectifyAngle(target_theta[1] - theta2_cur)) << std::endl;
-//         std::cout << "theta_cur " << theta1_cur << "      " << theta2_cur << std::endl;
-//         if (result_found && (left_arm_joint_1->setTargetPosition(target_theta[0], 1)) && (left_arm_joint_2->setTargetPosition(target_theta[1], 1)))
-//         {
-//             return true;
-//         }
-//     }
-//     else if (name == "right_arm")
-//     {
-//         static float min_sum_theta = PI * 2;
-//         float min_theta[2] = {0, 0};
-//         std::vector<std::vector<float>> theta = this->inverseKinematics(target);
-//         simSetObjectInt32Parameter(handles.right_arm_joint_1, sim_jointintparam_ctrl_enabled, 1); // enable postion control
-//         simSetObjectInt32Parameter(handles.right_arm_joint_2, sim_jointintparam_ctrl_enabled, 1);
-//         for (int i = 0; i < theta.size(); i++)
-//         {
-//             float sum_theta = 0;
-//             if (theta[i][1] > 0)
-//             {
-//                 sum_theta += abs(theta[i][0]) + abs(-theta[i][1]);
-//                 if (sum_theta < min_sum_theta)
-//                 {
-//                     min_sum_theta = sum_theta;
-//                     min_theta[0] = theta[i][0];
-//                     min_theta[1] = theta[i][1];
-//                 }
-//             }
-//             Eigen::Vector3f result = this->forwardKinematics(theta[i]);
-//         }
-//         if ((right_arm_joint_1->setTargetPosition(min_theta[0], 1)) && (right_arm_joint_2->setTargetPosition(min_theta[1], 1)))
-//         {
-//             return true;
-//         }
-//     }
-//     return false;
-// }
-
 std::vector<std::vector<float>> Arm::inverseKinematics(const Eigen::Vector3f &target)
 {
     std::vector<std::vector<float>> result;

@@ -80,6 +80,8 @@ int Robot::interactWithCustomerAtDoor()
     {
     case TURN_WAIST_TO_DOOR:
     {
+        std::cout << "ttt" << std::endl;
+
         if (waist_joint->setTargetPosition(yaw_diff, 1))
         {
             substate = HANDS_UP;
@@ -125,14 +127,14 @@ int Robot::interactWithCustomerAtDoor()
         left_arm_joint_1->setTargetPosition(0, 3);
         left_arm_joint_2->setTargetPosition(0, 3);
 
+        //substate = HANDS_UP;
+
         break;
     }
 
     default:
         break;
     }
-
-    WAIT(1, GET_TABLE_NUMBER);
 
     return INTERACT_WITH_CUSTOMER_AT_DOOR;
 }
@@ -210,8 +212,23 @@ int Robot::takeCustomerToTable()
 
 int Robot::interactWithCustomerAtTable()
 {
-
-    return BACK_TO_DOOR;
+    static float table_time = 0;
+    static bool table_flag = true;
+    Eigen::Vector3f table_target(-1.5, -6, 0.5);
+    //Eigen::Vector3f table_target(0, 0, 0);
+    if (table_flag)
+    {
+        left_arm->pointToTargetPosition(table_target, 2);
+        table_flag = false;
+    }
+    table_time++;
+    if (table_time == 300)
+    {
+        left_arm_joint_1->setTargetPosition(0, 2);
+        left_arm_joint_2->setTargetPosition(0, 2);
+        return BACK_TO_DOOR;
+    }
+    return INTERACT_WITH_CUSTOMER_AT_TABLE;
 }
 
 int Robot::backToDoor()

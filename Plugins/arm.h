@@ -38,8 +38,12 @@ private:
 
     inline Eigen::Vector3f worldToRobot(Eigen::Vector3f point)
     {
-        float x = point[0] * cos(data.robot_yaw) + point[1] * sin(data.robot_yaw);
-        float y = -point[0] * sin(data.robot_yaw) + point[1] * cos(data.robot_yaw);
+        float waist_angle;
+        simGetJointPosition(handles.waist_joint, &waist_angle);
+        float angle = waist_angle + data.robot_yaw;
+
+        float x = point[0] * cos(angle) + point[1] * sin(angle);
+        float y = -point[0] * sin(angle) + point[1] * cos(angle);
 
         return Eigen::Vector3f(x, y, point[2]);
     }
